@@ -1,0 +1,949 @@
+{
+  "generated": "2026-10-31",
+  "status": "Source catalogue; outlines are not approved published content",
+  "rules": {
+    "branches": [
+      {
+        "slug": "the-law",
+        "title": "THE LAW.",
+        "purpose": "Your rights, real consequences and common sense. Understand which rules apply and where qualified advice can help.",
+        "art": "code"
+      },
+      {
+        "slug": "the-terrain",
+        "title": "THE TERRAIN.",
+        "purpose": "Read situations, think about your choices and move with awareness. Everyday common sense, respect and a way to get support.",
+        "art": "route"
+      }
+    ],
+    "topics": [
+      {
+        "slug": "police-encounters",
+        "title": "POLICE ENCOUNTERS & STOP AND SEARCH.",
+        "purpose": "Understand the powers being used, your rights, questions you can ask and where to seek advice about unfair treatment.",
+        "branch": "the-law",
+        "art": "code",
+        "guideSlugs": [
+          "stop-and-search"
+        ],
+        "questions": [
+          "Which power is being used?",
+          "What information should you be given?",
+          "Where can you get advice or raise a concern?"
+        ],
+        "url": "/know-the-rules/the-law/police-encounters"
+      },
+      {
+        "slug": "arrest-and-advice",
+        "title": "ARREST, INTERVIEWS & A SOLICITOR.",
+        "purpose": "Find reliable information about legal advice, age-related safeguards and support in an individual case.",
+        "branch": "the-law",
+        "art": "code",
+        "guideSlugs": [
+          "arrest-and-a-solicitor"
+        ],
+        "questions": [
+          "How do you ask for legal advice?",
+          "Which age-related safeguards may apply?",
+          "Who can help with your situation?"
+        ],
+        "url": "/know-the-rules/the-law/arrest-and-advice"
+      },
+      {
+        "slug": "violence-and-consequences",
+        "title": "VIOLENCE, FIGHTS & CONSEQUENCES.",
+        "purpose": "Explore how conflict can escalate, the harm it can cause and why legal outcomes depend on the facts.",
+        "branch": "the-law",
+        "art": "boxing",
+        "guideSlugs": [
+          "when-a-fight-escalates"
+        ],
+        "questions": [
+          "What changes when an argument becomes violence?",
+          "Why do intent, evidence and circumstances matter?",
+          "What could help someone step away?"
+        ],
+        "url": "/know-the-rules/the-law/violence-and-consequences"
+      },
+      {
+        "slug": "knives-and-weapons",
+        "title": "KNIVES & WEAPONS.",
+        "purpose": "Understand risk and consequences without treating carrying as protection or a legal exception as a loophole.",
+        "branch": "the-law",
+        "art": "boxing",
+        "guideSlugs": [
+          "knives-and-consequences"
+        ],
+        "questions": [
+          "Why can carrying make a situation more dangerous?",
+          "Where are the current official rules?",
+          "What support can help with threats?"
+        ],
+        "url": "/know-the-rules/the-law/knives-and-weapons"
+      },
+      {
+        "slug": "drugs-and-exploitation",
+        "title": "DRUGS, PRESSURE & EXPLOITATION.",
+        "purpose": "Recognise pressure and coercion, find reliable legal information and know where to get trusted help.",
+        "branch": "the-law",
+        "art": "code",
+        "guideSlugs": [
+          "drugs-and-pressure",
+          "exploitation-is-not-your-fault"
+        ],
+        "questions": [
+          "When does an offer become pressure?",
+          "Who can help if you feel trapped?",
+          "Why does individual legal advice matter?"
+        ],
+        "url": "/know-the-rules/the-law/drugs-and-exploitation"
+      },
+      {
+        "slug": "consent-and-relationships",
+        "title": "CONSENT, SEX & RELATIONSHIPS.",
+        "purpose": "Explore respect, boundaries, age-related protections, pressure and routes to support.",
+        "branch": "the-law",
+        "art": "code",
+        "guideSlugs": [
+          "consent-and-respect"
+        ],
+        "questions": [
+          "What does a freely made choice involve?",
+          "When should you ask for specialist advice?",
+          "Where can you get support without sharing private images?"
+        ],
+        "url": "/know-the-rules/the-law/consent-and-relationships"
+      },
+      {
+        "slug": "online-rights",
+        "title": "ONLINE THREATS & PRIVATE IMAGES.",
+        "purpose": "Find support with digital conflict, harassment and privacy, with no need to upload sensitive material here.",
+        "branch": "the-law",
+        "art": "code",
+        "guideSlugs": [
+          "online-pressure"
+        ],
+        "questions": [
+          "How can an online argument escalate?",
+          "What should stay out of a public post?",
+          "Where can you ask for safe reporting advice?"
+        ],
+        "url": "/know-the-rules/the-law/online-rights"
+      },
+      {
+        "slug": "groups-and-responsibility",
+        "title": "FRIENDS, GROUPS & RESPONSIBILITY.",
+        "purpose": "A planned explainer about peer pressure and individual responsibility. Legal conclusions need evidence and case-specific advice.",
+        "branch": "the-law",
+        "art": "code",
+        "guideSlugs": [],
+        "questions": [
+          "How can group pressure affect a decision?",
+          "What does individual responsibility mean?",
+          "Who can advise on a particular case?"
+        ],
+        "url": "/know-the-rules/the-law/groups-and-responsibility"
+      },
+      {
+        "slug": "everyday-rights",
+        "title": "SCHOOL, WORK & EVERYDAY RIGHTS.",
+        "purpose": "A home for reviewed information about school, college, apprenticeships, work and money.",
+        "branch": "the-law",
+        "art": "code",
+        "guideSlugs": [],
+        "questions": [
+          "Which rules apply to this setting?",
+          "Who can explain your options?",
+          "How can you ask for support?"
+        ],
+        "url": "/know-the-rules/the-law/everyday-rights"
+      },
+      {
+        "slug": "read-the-situation",
+        "title": "READ THE SITUATION.",
+        "purpose": "Notice a situation changing, give yourself space and identify safe public help.",
+        "branch": "the-terrain",
+        "art": "route",
+        "guideSlugs": [],
+        "questions": [
+          "What tells you a situation is changing?",
+          "Where could you find a staffed public place?",
+          "When might leaving be the safer choice?"
+        ],
+        "url": "/know-the-rules/the-terrain/read-the-situation"
+      },
+      {
+        "slug": "how-you-carry-yourself",
+        "title": "HOW YOU CARRY YOURSELF.",
+        "purpose": "Explore space, tone and gestures while respecting different personalities, access needs and cultural norms.",
+        "branch": "the-terrain",
+        "art": "route",
+        "guideSlugs": [],
+        "questions": [
+          "How can you give yourself and others space?",
+          "What helps you feel more grounded?",
+          "How do needs and communication styles differ?"
+        ],
+        "url": "/know-the-rules/the-terrain/how-you-carry-yourself"
+      },
+      {
+        "slug": "how-you-talk",
+        "title": "HOW YOU TALK WHEN THINGS GET TENSE.",
+        "purpose": "Explore short, respectful ways to disengage, without promising that any phrase can guarantee safety.",
+        "branch": "the-terrain",
+        "art": "route",
+        "guideSlugs": [],
+        "questions": [
+          "What could you say without arguing?",
+          "How can you avoid humiliating someone?",
+          "When should you stop talking and seek help?"
+        ],
+        "url": "/know-the-rules/the-terrain/how-you-talk"
+      },
+      {
+        "slug": "unfamiliar-places",
+        "title": "MOVING THROUGH UNFAMILIAR PLACES.",
+        "purpose": "Plan a public journey, know who you can contact and find support without sharing live location.",
+        "branch": "the-terrain",
+        "art": "route",
+        "guideSlugs": [],
+        "questions": [
+          "How will you get there and back?",
+          "Which staffed places could help?",
+          "Who is a trusted contact for you?"
+        ],
+        "url": "/know-the-rules/the-terrain/unfamiliar-places"
+      },
+      {
+        "slug": "friends-and-getting-home",
+        "title": "OUT WITH FRIENDS. GETTING HOME.",
+        "purpose": "Think about travel plans, changing circumstances and pressure to stay when you want to leave.",
+        "branch": "the-terrain",
+        "art": "route",
+        "guideSlugs": [],
+        "questions": [
+          "What is your plan for getting home?",
+          "What if the group wants different things?",
+          "Who could help if plans change?"
+        ],
+        "url": "/know-the-rules/the-terrain/friends-and-getting-home"
+      },
+      {
+        "slug": "your-code",
+        "title": "YOUR CODE: RESPECT & BOUNDARIES.",
+        "purpose": "Think through personal values, accountability, consent and loyalty with boundaries.",
+        "branch": "the-terrain",
+        "art": "route",
+        "guideSlugs": [],
+        "questions": [
+          "What does respect look like to you?",
+          "How can you support a friend without joining a conflict?",
+          "Which boundaries matter to you?"
+        ],
+        "url": "/know-the-rules/the-terrain/your-code"
+      },
+      {
+        "slug": "online-to-offline",
+        "title": "WHEN ONLINE CONFLICT MOVES OFFLINE.",
+        "purpose": "Explore ways to step back from escalating messages and avoid being pulled into a confrontation.",
+        "branch": "the-terrain",
+        "art": "route",
+        "guideSlugs": [],
+        "questions": [
+          "Is replying helping or escalating?",
+          "Who could help you think it through?",
+          "What would a safer next step look like?"
+        ],
+        "url": "/know-the-rules/the-terrain/online-to-offline"
+      },
+      {
+        "slug": "leave-and-get-help",
+        "title": "WHEN TO LEAVE. WHEN TO GET HELP.",
+        "purpose": "Make room for a safer exit, trusted support and emergency alternatives. Another person's violence is not your fault.",
+        "branch": "the-terrain",
+        "art": "route",
+        "guideSlugs": [],
+        "questions": [
+          "Can you leave safely?",
+          "Which trusted service or person could help?",
+          "Is someone in immediate danger?"
+        ],
+        "url": "/know-the-rules/the-terrain/leave-and-get-help"
+      }
+    ]
+  },
+  "paths": {
+    "branches": [
+      {
+        "slug": "tech-engineering",
+        "label": "Tech & Engineering",
+        "title": "TECH & ENGINEERING.",
+        "purpose": "Ideas, code and the systems that make things work.",
+        "art": "robot"
+      },
+      {
+        "slug": "sports",
+        "label": "Sports",
+        "title": "SPORTS.",
+        "purpose": "Movement, participation and the roles around the game.",
+        "art": "court"
+      },
+      {
+        "slug": "vocational-practical",
+        "label": "Vocational & Practical",
+        "title": "VOCATIONAL & PRACTICAL.",
+        "purpose": "Practical skills, recognised learning and possible next steps.",
+        "art": "maker"
+      }
+    ],
+    "fields": [
+      {
+        "branch": "tech-engineering",
+        "slug": "web-development",
+        "title": "WEB DEVELOPMENT.",
+        "purpose": "Explore how websites are structured, designed and made useful for other people.",
+        "art": "code",
+        "basics": [
+          "Page structure",
+          "Readable design",
+          "Simple interactions"
+        ],
+        "lessonSlugs": [
+          "your-first-website"
+        ],
+        "activityCategory": "tech-engineering",
+        "url": "/choose-a-path/tech-engineering/web-development"
+      },
+      {
+        "branch": "tech-engineering",
+        "slug": "software-coding",
+        "title": "SOFTWARE & CODING.",
+        "purpose": "Explore how code turns a small idea into a useful tool.",
+        "art": "code",
+        "basics": [
+          "Breaking down a problem",
+          "Giving clear instructions",
+          "Testing an idea"
+        ],
+        "lessonSlugs": [
+          "your-first-website"
+        ],
+        "activityCategory": "tech-engineering",
+        "url": "/choose-a-path/tech-engineering/software-coding"
+      },
+      {
+        "branch": "tech-engineering",
+        "slug": "robotics-automation",
+        "title": "ROBOTICS & AUTOMATION.",
+        "purpose": "Explore how sensors, code and moving parts work together.",
+        "art": "robot",
+        "basics": [
+          "Sensors",
+          "Control systems",
+          "Outputs"
+        ],
+        "lessonSlugs": [
+          "robotics-starts-small"
+        ],
+        "activityCategory": "tech-engineering",
+        "url": "/choose-a-path/tech-engineering/robotics-automation"
+      },
+      {
+        "branch": "tech-engineering",
+        "slug": "electrical-engineering",
+        "title": "ELECTRICAL ENGINEERING.",
+        "purpose": "Explore the design of electrical systems and the routes into learning about them safely.",
+        "art": "robot",
+        "basics": [
+          "Energy and systems",
+          "Design thinking",
+          "Simulation before practical work"
+        ],
+        "lessonSlugs": [],
+        "activityCategory": "tech-engineering",
+        "url": "/choose-a-path/tech-engineering/electrical-engineering"
+      },
+      {
+        "branch": "tech-engineering",
+        "slug": "electronics",
+        "title": "ELECTRONICS.",
+        "purpose": "Explore components, signals and the small systems inside everyday devices.",
+        "art": "robot",
+        "basics": [
+          "Components",
+          "Signals",
+          "Supervised low-risk learning"
+        ],
+        "lessonSlugs": [
+          "robotics-starts-small"
+        ],
+        "activityCategory": "tech-engineering",
+        "url": "/choose-a-path/tech-engineering/electronics"
+      },
+      {
+        "branch": "tech-engineering",
+        "slug": "mechanical-engineering",
+        "title": "MECHANICAL ENGINEERING.",
+        "purpose": "Explore how things move, how designs are tested and how physical systems are made.",
+        "art": "maker",
+        "basics": [
+          "Forces and motion",
+          "Materials",
+          "Design and testing"
+        ],
+        "lessonSlugs": [],
+        "activityCategory": "tech-engineering",
+        "url": "/choose-a-path/tech-engineering/mechanical-engineering"
+      },
+      {
+        "branch": "tech-engineering",
+        "slug": "creative-digital-skills",
+        "title": "CREATIVE DIGITAL SKILLS.",
+        "purpose": "Explore film, design, editing, animation and sound as creative and technical skills.",
+        "art": "film",
+        "basics": [
+          "A clear brief",
+          "Consent and rights",
+          "Making and improving"
+        ],
+        "lessonSlugs": [
+          "creative-technology"
+        ],
+        "activityCategory": "creative",
+        "url": "/choose-a-path/tech-engineering/creative-digital-skills"
+      },
+      {
+        "branch": "sports",
+        "slug": "football-futsal",
+        "title": "FOOTBALL & FUTSAL.",
+        "purpose": "Explore participation, teamwork and routes around the game.",
+        "art": "football",
+        "basics": [
+          "Skills practice",
+          "Teamwork",
+          "Appropriate coaching"
+        ],
+        "lessonSlugs": [
+          "behind-the-game"
+        ],
+        "activityCategory": "sport-movement",
+        "url": "/choose-a-path/sports/football-futsal"
+      },
+      {
+        "branch": "sports",
+        "slug": "boxing-martial-arts",
+        "title": "BOXING & MARTIAL ARTS.",
+        "purpose": "Explore movement and discipline through appropriately qualified, supervised programmes.",
+        "art": "boxing",
+        "basics": [
+          "Qualified supervision",
+          "Age-appropriate participation",
+          "Non-contact introductions"
+        ],
+        "lessonSlugs": [
+          "more-than-the-score"
+        ],
+        "activityCategory": "sport-movement",
+        "url": "/choose-a-path/sports/boxing-martial-arts"
+      },
+      {
+        "branch": "sports",
+        "slug": "athletics",
+        "title": "ATHLETICS.",
+        "purpose": "Explore running, movement and your own progress with suitable support.",
+        "art": "sprint",
+        "basics": [
+          "A suitable starting point",
+          "Personal progress",
+          "Recovery and support"
+        ],
+        "lessonSlugs": [
+          "find-your-rhythm"
+        ],
+        "activityCategory": "sport-movement",
+        "url": "/choose-a-path/sports/athletics"
+      },
+      {
+        "branch": "sports",
+        "slug": "basketball",
+        "title": "BASKETBALL.",
+        "purpose": "Find out about the game, learning with others and getting involved at your own pace.",
+        "art": "court",
+        "basics": [
+          "Skills",
+          "Teamwork",
+          "A supportive environment"
+        ],
+        "lessonSlugs": [
+          "more-than-the-score"
+        ],
+        "activityCategory": "sport-movement",
+        "url": "/choose-a-path/sports/basketball"
+      },
+      {
+        "branch": "sports",
+        "slug": "sport-careers",
+        "title": "COACHING, REFEREEING & SPORT CAREERS.",
+        "purpose": "Look at the people and skills that help sport happen beyond playing.",
+        "art": "football",
+        "basics": [
+          "Different roles",
+          "Recognised training",
+          "Safeguarding responsibilities"
+        ],
+        "lessonSlugs": [
+          "behind-the-game"
+        ],
+        "activityCategory": "sport-movement",
+        "url": "/choose-a-path/sports/sport-careers"
+      },
+      {
+        "branch": "vocational-practical",
+        "slug": "motor-vehicle-mechanics",
+        "title": "MOTOR VEHICLE MECHANICS.",
+        "purpose": "Explore vehicle systems and routes into supervised, practical learning.",
+        "art": "maker",
+        "basics": [
+          "How systems connect",
+          "Finding a recognised route",
+          "Workshop safety"
+        ],
+        "lessonSlugs": [],
+        "activityCategory": "trades-careers",
+        "url": "/choose-a-path/vocational-practical/motor-vehicle-mechanics"
+      },
+      {
+        "branch": "vocational-practical",
+        "slug": "carpentry-joinery",
+        "title": "CARPENTRY & JOINERY.",
+        "purpose": "Explore planning, materials and making through safe, supervised learning.",
+        "art": "maker",
+        "basics": [
+          "Measurement and planning",
+          "Materials",
+          "Suitable supervision"
+        ],
+        "lessonSlugs": [
+          "make-it-with-your-hands"
+        ],
+        "activityCategory": "trades-careers",
+        "url": "/choose-a-path/vocational-practical/carpentry-joinery"
+      },
+      {
+        "branch": "vocational-practical",
+        "slug": "electrical-installation",
+        "title": "ELECTRICAL INSTALLATION.",
+        "purpose": "Understand this practical trade and how it differs from electrical engineering.",
+        "art": "maker",
+        "basics": [
+          "The role",
+          "Recognised qualifications",
+          "Training and safety"
+        ],
+        "lessonSlugs": [],
+        "activityCategory": "trades-careers",
+        "url": "/choose-a-path/vocational-practical/electrical-installation"
+      },
+      {
+        "branch": "vocational-practical",
+        "slug": "plumbing-heating",
+        "title": "PLUMBING & HEATING.",
+        "purpose": "Explore the work, training routes and responsibilities in this practical field.",
+        "art": "maker",
+        "basics": [
+          "Systems",
+          "Recognised training",
+          "Role-specific safety"
+        ],
+        "lessonSlugs": [],
+        "activityCategory": "trades-careers",
+        "url": "/choose-a-path/vocational-practical/plumbing-heating"
+      },
+      {
+        "branch": "vocational-practical",
+        "slug": "construction-trades",
+        "title": "CONSTRUCTION & BUILDING TRADES.",
+        "purpose": "Explore different practical roles and how to find a supervised introduction.",
+        "art": "maker",
+        "basics": [
+          "Different trades",
+          "Working with others",
+          "Safe learning environments"
+        ],
+        "lessonSlugs": [
+          "make-it-with-your-hands"
+        ],
+        "activityCategory": "trades-careers",
+        "url": "/choose-a-path/vocational-practical/construction-trades"
+      },
+      {
+        "branch": "vocational-practical",
+        "slug": "apprenticeships",
+        "title": "APPRENTICESHIPS & ENTRY ROUTES.",
+        "purpose": "Understand the questions to ask about a real work-and-training opportunity.",
+        "art": "code",
+        "basics": [
+          "Eligibility",
+          "Employer and training provider",
+          "Pay, support and conditions"
+        ],
+        "lessonSlugs": [
+          "apprenticeships-explained"
+        ],
+        "activityCategory": "trades-careers",
+        "url": "/choose-a-path/vocational-practical/apprenticeships"
+      }
+    ],
+    "introductoryArticles": [
+      {
+        "slug": "your-first-website",
+        "category": "Tech",
+        "title": "AN IDEA. A SCREEN. A START.",
+        "kicker": "WEB DEVELOPMENT / 01",
+        "description": "Every site you use began as someone’s idea. Learn what goes into building one — then try a small move of your own.",
+        "art": "code",
+        "steps": [
+          {
+            "title": "Three parts of a page",
+            "body": "HTML gives a page structure. CSS gives it its look. JavaScript adds interactions. You don’t have to learn all three at once."
+          },
+          {
+            "title": "Try one tiny build",
+            "body": "Sketch a page for an interest you care about. Give it a clear heading, a short introduction and one useful action. Think about someone using it on a small phone."
+          },
+          {
+            "title": "Build for other people",
+            "body": "Readable text, keyboard access, clear labels and good contrast are part of building well. Start with a free learning resource and never pay for a course without checking it with a trusted person."
+          }
+        ],
+        "takeaway": "Start small. Make one useful thing. Improve it.",
+        "relatedCategory": "Coding & tech"
+      },
+      {
+        "slug": "robotics-starts-small",
+        "category": "Tech",
+        "title": "MAKE SOMETHING MOVE.",
+        "kicker": "ROBOTICS & ENGINEERING / 02",
+        "description": "Code meets the physical world. Robots are built from small systems — and curious people.",
+        "art": "robot",
+        "steps": [
+          {
+            "title": "Sense. Decide. Act.",
+            "body": "A sensor reads something, code makes a decision and an output responds. A light that reacts to brightness is already a useful first project."
+          },
+          {
+            "title": "A safe first step",
+            "body": "Try a browser-based electronics simulator or a supervised beginner workshop. Leave mains power, batteries, moving machinery and specialist tools to appropriately trained supervision."
+          },
+          {
+            "title": "More than one role",
+            "body": "Robotics can involve software, mechanical design, electronics, testing and teamwork. You can start with the part that interests you."
+          }
+        ],
+        "takeaway": "Curiosity counts more than already knowing the answer.",
+        "relatedCategory": "Coding & tech"
+      },
+      {
+        "slug": "creative-technology",
+        "category": "Tech",
+        "title": "YOUR IDEAS. NEW TOOLS.",
+        "kicker": "CREATIVE TECHNOLOGY / 03",
+        "description": "Design, editing, animation and sound all have a place in tech. You don’t need to pick between creative and technical.",
+        "art": "film",
+        "steps": [
+          {
+            "title": "Tell one clear story",
+            "body": "Plan a 20-second sequence using drawings or objects. A beginning, a change and an ending are enough to practise storytelling."
+          },
+          {
+            "title": "Respect people and rights",
+            "body": "Ask before recording someone. Don’t include anyone’s private information. Use your own work or material you have permission to use."
+          },
+          {
+            "title": "Keep a small portfolio",
+            "body": "A few thoughtful projects can show what you enjoy and how you improve. Keep personal contact details private and ask a trusted adult before publishing work that identifies you."
+          }
+        ],
+        "takeaway": "Make it yours. Make it with care.",
+        "relatedCategory": "Film & music"
+      },
+      {
+        "slug": "more-than-the-score",
+        "category": "Sports",
+        "title": "MORE THAN THE SCORE.",
+        "kicker": "PLAYING & PROGRESS / 01",
+        "description": "Sport can be about enjoyment, routine and belonging. You don’t need to be the best person in the room to belong there.",
+        "art": "court",
+        "steps": [
+          {
+            "title": "Find a good environment",
+            "body": "Look for verified supervision, age-appropriate sessions and a coach who treats everyone with respect. Ask about accessibility, costs and equipment."
+          },
+          {
+            "title": "Choose your own progress",
+            "body": "A goal could be showing up regularly, learning a skill or enjoying movement. Compare your progress with your own starting point."
+          },
+          {
+            "title": "Look after yourself",
+            "body": "Use suitable equipment and follow a qualified coach’s guidance. Stop and tell the responsible adult if something hurts or feels unsafe."
+          }
+        ],
+        "takeaway": "Your pace. Your progress. Your place on the team.",
+        "relatedCategory": "Basketball"
+      },
+      {
+        "slug": "behind-the-game",
+        "category": "Sports",
+        "title": "THE GAME HAS MORE ROLES.",
+        "kicker": "COACHING & SPORT CAREERS / 02",
+        "description": "Not every route in sport is professional playing. Coaching, officiating, events and creative work all help a game happen.",
+        "art": "football",
+        "steps": [
+          {
+            "title": "Look around the pitch",
+            "body": "Think about who organises a session, cares for the venue, runs the scoreboard or tells the story afterwards. Different strengths fit different roles."
+          },
+          {
+            "title": "Learn under supervision",
+            "body": "Age limits, qualifications and safeguarding requirements vary. Find an official governing body or verified provider and ask about appropriate introductory routes."
+          },
+          {
+            "title": "Ask practical questions",
+            "body": "What does training cost? Is it recognised? Who supervises? What support is available? Don’t accept promises of guaranteed trials, contracts or jobs."
+          }
+        ],
+        "takeaway": "You can be part of the game in more than one way.",
+        "relatedCategory": "Football"
+      },
+      {
+        "slug": "find-your-rhythm",
+        "category": "Sports",
+        "title": "FIND YOUR RHYTHM.",
+        "kicker": "MOVEMENT & WELLBEING / 03",
+        "description": "A short walk, a coached sprint session or non-contact fitness. Movement can fit around who you are.",
+        "art": "sprint",
+        "steps": [
+          {
+            "title": "Start where you are",
+            "body": "Try an activity that suits your access needs and experience. A qualified provider should be able to explain adaptations and suitable starting points."
+          },
+          {
+            "title": "A routine that works for you",
+            "body": "Small, realistic plans are easier to return to. Rest, food, sleep and support matter too."
+          },
+          {
+            "title": "Know when to get advice",
+            "body": "If you have a health concern, ask a qualified health professional about what is appropriate for you. A sports session is not a substitute for medical or mental-health care."
+          }
+        ],
+        "takeaway": "Movement is an option, not a test of your worth.",
+        "relatedCategory": "Athletics"
+      },
+      {
+        "slug": "make-it-with-your-hands",
+        "category": "Vocation",
+        "title": "SKILLS YOU CAN BUILD ON.",
+        "kicker": "TRADES & MAKING / 01",
+        "description": "From carpentry to construction design, practical work brings ideas into the world. Start with safe, supervised learning.",
+        "art": "maker",
+        "steps": [
+          {
+            "title": "Get a feel for the work",
+            "body": "A verified taster session can help you explore measuring, planning, materials and design before committing to a course."
+          },
+          {
+            "title": "Safety is part of the skill",
+            "body": "Tools and workshops require training, suitable supervision and protective equipment. Don’t practise hazardous tasks alone or use equipment without permission."
+          },
+          {
+            "title": "Check the next step",
+            "body": "Ask a school careers adviser, college or official training provider about recognised routes, entry requirements, support and costs."
+          }
+        ],
+        "takeaway": "A practical skill is a place to start, not a limit on your future.",
+        "relatedCategory": "Design & trades"
+      },
+      {
+        "slug": "apprenticeships-explained",
+        "category": "Vocation",
+        "title": "LEARN. WORK. KEEP GROWING.",
+        "kicker": "APPRENTICESHIPS / 02",
+        "description": "An apprenticeship combines work and training. It is worth understanding the details before making a decision.",
+        "art": "code",
+        "steps": [
+          {
+            "title": "What to look for",
+            "body": "Check the employer, recognised qualification, training provider, entry requirements and working arrangements. Eligibility varies; use the official government apprenticeship service."
+          },
+          {
+            "title": "Ask about the whole offer",
+            "body": "Hours, pay, travel, support, study time and accessibility all matter. A trusted careers adviser can help you compare options without pressure."
+          },
+          {
+            "title": "No guaranteed places here",
+            "body": "RWM’s demo listings do not offer real apprenticeships. Visit GOV.UK’s apprenticeship pages or your school or college careers team for current opportunities."
+          }
+        ],
+        "takeaway": "A good opportunity should stand up to clear questions.",
+        "relatedCategory": "Design & trades"
+      },
+      {
+        "slug": "your-first-creative-brief",
+        "category": "Vocation",
+        "title": "TURN AN INTEREST INTO A SKILL.",
+        "kicker": "CREATIVE WORK & ENTERPRISE / 03",
+        "description": "Design, video, music and youth enterprise all begin with something you can practise. Learn the work behind the finished thing.",
+        "art": "film",
+        "steps": [
+          {
+            "title": "Work to a small brief",
+            "body": "Design a poster for an imaginary event. Who is it for, what do they need to know and what should they do next? Keep it readable on a phone."
+          },
+          {
+            "title": "Understand agreements",
+            "body": "Before real paid work, ask a trusted adviser about payment, permissions, contracts and age-specific requirements. Don’t share financial or identity documents with someone you haven’t checked."
+          },
+          {
+            "title": "Explore without pressure",
+            "body": "A supervised course, careers conversation or volunteering role may help you learn. Ask about expenses and expectations. Your time has value."
+          }
+        ],
+        "takeaway": "An interest is a start. Practice gives it shape.",
+        "relatedCategory": "Film & music"
+      }
+    ]
+  },
+  "activities": {
+    "categories": [
+      {
+        "slug": "sport-movement",
+        "title": "SPORT & MOVEMENT.",
+        "purpose": "Find a supervised way to move, play and learn with others.",
+        "art": "court",
+        "listingCategories": [
+          "Basketball",
+          "Football",
+          "Boxing fitness",
+          "Athletics",
+          "Sport & wellbeing"
+        ]
+      },
+      {
+        "slug": "tech-engineering",
+        "title": "TECH & ENGINEERING.",
+        "purpose": "Coding, robotics, electronics and supervised making.",
+        "art": "robot",
+        "listingCategories": [
+          "Coding & tech",
+          "Robotics",
+          "Engineering"
+        ]
+      },
+      {
+        "slug": "creative",
+        "title": "CREATIVE ACTIVITIES.",
+        "purpose": "Film, editing, photography, animation, music and design.",
+        "art": "film",
+        "listingCategories": [
+          "Film & music",
+          "Graphic design",
+          "Creative arts"
+        ]
+      },
+      {
+        "slug": "trades-careers",
+        "title": "TRADES, CAREERS & ENTERPRISE.",
+        "purpose": "Practical tasters, career support and checked routes into learning.",
+        "art": "maker",
+        "listingCategories": [
+          "Design & trades",
+          "Careers",
+          "Apprenticeships",
+          "Youth enterprise"
+        ]
+      },
+      {
+        "slug": "mentoring-support",
+        "title": "MENTORING & SUPPORT.",
+        "purpose": "Vetted programmes with appropriate boundaries and supervision.",
+        "art": "route",
+        "listingCategories": [
+          "Mentoring",
+          "Wellbeing",
+          "Debating & conflict resolution"
+        ]
+      },
+      {
+        "slug": "holidays-challenges",
+        "title": "HOLIDAYS, EVENTS & CHALLENGES.",
+        "purpose": "Age-appropriate seasonal sessions and supervised challenges.",
+        "art": "sprint",
+        "listingCategories": []
+      }
+    ]
+  },
+  "stories": {
+    "reservedSlots": [
+      {
+        "id": "ST01",
+        "slug": "st01",
+        "title": "STORY 01",
+        "status": "awaiting_material"
+      },
+      {
+        "id": "ST02",
+        "slug": "st02",
+        "title": "STORY 02",
+        "status": "awaiting_material"
+      },
+      {
+        "id": "ST03",
+        "slug": "st03",
+        "title": "STORY 03",
+        "status": "awaiting_material"
+      },
+      {
+        "id": "ST04",
+        "slug": "st04",
+        "title": "STORY 04",
+        "status": "awaiting_material"
+      },
+      {
+        "id": "ST05",
+        "slug": "st05",
+        "title": "STORY 05",
+        "status": "awaiting_material"
+      },
+      {
+        "id": "ST06",
+        "slug": "st06",
+        "title": "STORY 06",
+        "status": "awaiting_material"
+      },
+      {
+        "id": "ST07",
+        "slug": "st07",
+        "title": "STORY 07",
+        "status": "awaiting_material"
+      },
+      {
+        "id": "ST08",
+        "slug": "st08",
+        "title": "STORY 08",
+        "status": "awaiting_material"
+      },
+      {
+        "id": "ST09",
+        "slug": "st09",
+        "title": "STORY 09",
+        "status": "awaiting_material"
+      },
+      {
+        "id": "ST10",
+        "slug": "st10",
+        "title": "STORY 10",
+        "status": "awaiting_material"
+      }
+    ]
+  }
+}
