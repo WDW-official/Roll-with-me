@@ -20,8 +20,8 @@ export const imageSlots: ImageSlot[] = [{
   priority: "first",
   brief: "Neutral London civic architecture or an original type-led legal graphic. No offender-look profiles, racial shorthand or threatening police imagery."
 }, {
-  id: "terrain-banner",
-  pages: ["/know-the-rules/the-terrain", "/know-the-rules/the-terrain/*"],
+  id: "street-banner",
+  pages: ["/know-the-rules/the-street", "/know-the-rules/the-street/*"],
   purpose: "Everyday awareness banner",
   preferredRatio: "16:9 with a 4:5 safe crop",
   minimumSize: "2400 × 1350",

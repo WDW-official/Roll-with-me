@@ -31,7 +31,7 @@ const restrictedStory={...stories[0],permissionReference:"private",guardianConse
 const restrictedOpportunity={...opportunities[0],providerId:"private",safeguardingReviewer:"staff"};
 for(const field of ["permissionReference","guardianConsentReference","safeguardingReviewer"])check(()=>assert.equal(field in publicStory(restrictedStory),false));
 for(const field of ["providerId","safeguardingReviewer"])check(()=>assert.equal(field in publicOpportunity(restrictedOpportunity),false));
-check(()=>assert.deepEqual(ruleBranches.map(b=>b.slug),["the-law","the-terrain"]));
+check(()=>assert.deepEqual(ruleBranches.map(b=>b.slug),["the-law","the-street"]));
 check(()=>assert.equal(ruleTopics.length,17));check(()=>assert.equal(pathBranches.length,3));check(()=>assert.equal(pathFields.length,18));
 const topicRoutes=[...ruleTopics.map(ruleTopicHref),...pathFields.map(pathFieldHref)];
 check(()=>assert.equal(new Set(topicRoutes).size,35));

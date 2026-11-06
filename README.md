@@ -2,15 +2,17 @@
 
 **MOVE TOGETHER. BECOME MORE.** London-first, mobile-first platform for young people aged 13–20, with separate parent/carer and staff experiences.
 
-The agreed subpage architecture is now written in source: **The Law / The Terrain**, 17 topic pages, three learning branches with 18 field pages, retained local discovery choices, ten reserved story spaces and shared self/parent-carer help routes. See [implemented structure](docs/IMPLEMENTED-STRUCTURE.md) and the [image brief](docs/IMAGE-BRIEF.md). Outlined pages clearly state that their full content/resources are being prepared; the ten story slots contain no invented testimony. Design previews and the source HTML review are not a running application. Start with [the developer handover](DEVELOPER-START-HERE.md) and [the complete section communication map](docs/SECTION-AND-PAGE-MAP.md).
+The agreed subpage architecture is now written in source: **The Law / The Street**, 17 topic pages, three learning branches with 18 field pages, retained local discovery choices, ten reserved story spaces and shared self/parent-carer help routes. See [implemented structure](docs/IMPLEMENTED-STRUCTURE.md) and the [image brief](docs/IMAGE-BRIEF.md). Outlined pages clearly state that their full content/resources are being prepared; the ten story slots contain no invented testimony. Design previews and the source HTML review are not a running application. Start with [the developer handover](DEVELOPER-START-HERE.md) and [the complete section communication map](docs/SECTION-AND-PAGE-MAP.md).
 
 This is a production-minded **pre-launch source implementation**, not an operated safeguarding service, reviewed legal service, live event catalogue or deployed store. All bundled activities and stories are explicitly illustrative. No real partner, available place, legal review, testimony, funding or impact result is invented.
+
+Legacy `/know-the-rules/the-terrain` links redirect permanently to `/know-the-rules/the-street`, including topic paths and query parameters. Existing support-context references and Cloudinary asset URLs remain compatible.
 
 The primary experience is now built around **four mobile sections**:
 
 | Section | Mobile entry | Experience |
 | --- | --- | --- |
-| **Know the Rules** | `/know-the-rules` | The Law / The Terrain, 17 topic pages, Facts, Context & Myths; existing matched legal drafts retain review warnings |
+| **Know the Rules** | `/know-the-rules` | The Law / The Street, 17 topic pages, Facts, Context & Myths; existing matched legal drafts retain review warnings |
 | **Choose a Path** | `/choose-a-path` | Tech & Engineering / Sports / Vocational & Practical; 18 field pages and nine original short introduction articles |
 | **Roll With Me** | `/roll-with-me` | Choose North / East / South / West London, then one of seven shared categories; local listings with borough and age filters |
 | **The Real** | `/the-real` | Ten reserved story spaces, themes and three labelled fictional examples; genuine stories await material/review |
@@ -59,6 +61,7 @@ Next.js 16 App Router, React 19, strict TypeScript, Tailwind CSS 4, Mongoose/Mon
 | `src/lib/structure.ts` | Shared topic, field, activity-category and story-slot catalogue; validated local URL state and public support contexts |
 | `src/lib/support-policy.ts` | Contact-preference and manual referral-record completeness checks |
 | `src/lib/image-plan.ts` | Image briefs and original-art fallback slots; no invented asset paths |
+| `src/lib/editorial-media.ts` | User-supplied Cloudinary artwork mapped to learning fields, rule topics and legacy guide routes |
 | `scripts` | Non-destructive seed, local staff provisioning, retention review |
 | `tests` | Publication, privacy, export and questionnaire tests; desktop/mobile browser journeys |
 
@@ -187,7 +190,7 @@ Live Atlas transaction races, authenticated role integration, actual Cloudinary 
 
 ## Location-first Roll With Me
 
-The four catchments share one ordered category directory in `src/lib/structure.ts`. Both `/roll-with-me?area=North` and the legacy `/roll-with-me/categories?area=North` render it. Category pages live at `/roll-with-me/categories/<slug>?area=North`; legacy area and borough routes redirect while retaining valid filters. Missing or invalid catchments prompt an explicit choice.
+The four catchments share one ordered category directory in `src/lib/structure.ts`. Both `/roll-with-me?area=North` and the legacy `/roll-with-me/categories?area=North` render it. Category pages live at `/roll-with-me/categories/<slug>?area=North`; legacy area and borough routes redirect while retaining valid filters. Opening `/roll-with-me` without an area redirects to `?area=North`, retaining other query parameters. Explicit catchments remain selected; invalid catchments prompt a choice.
 
 Each opportunity has one `canonicalCategory`. New staff submissions require it; old records resolve through a conservative compatibility mapping until resaved. The eight demo records keep their regions, with `maker-session` assigned to Tech & Engineering. Holiday flags and other tags do not create extra canonical homes. Optional `catchments`, `boroughs`, `tags` and `vocation` fields support provider data as it is confirmed.
 
@@ -200,3 +203,7 @@ QA covers all 28 region/category combinations, legacy links, filter persistence,
 ```sh
 PLAYWRIGHT_CHANNEL=chrome PLAYWRIGHT_BASE_URL=http://127.0.0.1:3100 PLAYWRIGHT_SERVER_COMMAND='npm run start -- --port 3100 --hostname 127.0.0.1' npm run test:e2e -- tests/e2e/local-activities.spec.ts tests/e2e/mobile-feeds.spec.ts
 ```
+
+Editorial imagery supplied for Choose a Path and Know the Rules is mapped in `src/lib/editorial-media.ts` and shared across swipe cards, directory cards and page heroes. Conflict Resolution illustrates Your Code: Respect & Boundaries; Rumours & Misinformation illustrates the existing Facts, Context & Myths resource. Unmapped topics retain their original artwork. The stop-and-search GIF starts as a still preview, offers explicit play/pause on its detail pages, stops when out of view, and keeps a still image for reduced-motion preferences.
+
+Public Cloudinary images are delivered directly through responsive CDN resize, automatic-format and automatic-quality transformations in `src/lib/image-delivery.ts`, avoiding full-original downloads through the Next.js optimizer. Editorial asset entries accept either complete Cloudinary URLs or relative versioned paths. `ResilientImage` preserves the approved desktop/mobile sources, retries once using a smaller JPEG after failure, and shows a local neutral placeholder if both attempts fail. Visible stalled requests also have a bounded recovery timeout; offscreen lazy-loaded images are not timed out before they enter view. Local images retain Next.js optimization, and signed/private Cloudinary URLs are not rewritten.

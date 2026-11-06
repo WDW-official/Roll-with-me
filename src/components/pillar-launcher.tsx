@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image, { getImageProps } from "next/image";
+import { ResilientImage } from "./resilient-image";
 import { ArrowUpRight } from "lucide-react";
 export function PillarLauncher() {
   return (
@@ -14,7 +14,7 @@ export function PillarLauncher() {
           <p>Pick a section. Swipe. Find your next move.</p>
         </div>
         <div className="pillar-launcher-image">
-          <Image
+          <ResilientImage
             src="https://res.cloudinary.com/dzn1k1z8r/image/upload/v1793995243/Rainy_London_Walk_Beneath_Big_Ben_wvjbof.png"
             alt="A person wearing a Roll With Me hoodie walks through rainy London, with Big Ben and a red bus ahead."
             fill
@@ -70,33 +70,20 @@ export function PillarLauncher() {
               "https://res.cloudinary.com/dzn1k1z8r/image/upload/v1793950949/RWM_The_Real_Mobile_Current_Approved_v3_i8lywr.png",
           },
         ].map((p) => {
-          const common = {
-            alt: "",
-            fill: true,
-            sizes: "(max-width: 700px) 50vw, 25vw",
-          };
-          const { props: desktopImage } = getImageProps({
-            ...common,
-            src: p.desktopImage,
-          });
-          const { props: mobileImage } = getImageProps({
-            ...common,
-            src: p.mobileImage,
-          });
           return (
             <Link
               href={p.href}
               key={p.href}
               className={`pillar-launcher-card pillar-image-card pillar-${p.type}`}
             >
-              <picture className="pillar-card-image" aria-hidden="true">
-                <source
-                  media="(max-width: 700px)"
-                  srcSet={mobileImage.srcSet}
-                  sizes={mobileImage.sizes}
-                />
-                <img {...desktopImage} />
-              </picture>
+              <ResilientImage
+                src={p.desktopImage}
+                mobileSrc={p.mobileImage}
+                pictureClassName="pillar-card-image"
+                alt=""
+                fill
+                sizes="(max-width: 700px) 50vw, 25vw"
+              />
               <div>
                 <span className="mono">{p.number}</span>
               </div>

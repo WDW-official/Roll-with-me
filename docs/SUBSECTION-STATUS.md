@@ -8,7 +8,7 @@ The downloadable `artifacts/OPEN-RWM-SUBSECTIONS.html` is a read-only export gen
 
 | Main section | Subsections written | Actual content status |
 | --- | --- | --- |
-| Know the Rules | The Law (9 topics), The Terrain (8 topics), Facts, Context & Myths | Topic layouts, purpose, questions, reflection and help links. Matching existing legal drafts appear with explicit review warnings. Terrain topics are outlines, rather than full lessons. |
+| Know the Rules | The Law (9 topics), The Street (8 topics), Facts, Context & Myths | Topic layouts, purpose, questions, reflection and help links. Matching existing legal drafts appear with explicit review warnings. Street topics are outlines, rather than full lessons. |
 | Choose a Path | Tech & Engineering (7 fields), Sports (5), Vocational & Practical (6); all-fields directory | Each field has a page with basic concepts, age-specific routes, next-step/resource preparation notices, related existing introductions, local activity and help links. Nine short introduction articles exist. Full lessons and checked videos are unfinished. |
 | Roll With Me | North, East, West and South London; borough pages; 6 activity category views | Local browsing structure, filters and activity detail pages. The eight seeded activity examples remain labelled DEMO / NOT VERIFIED and cannot be booked as live opportunities. |
 | The Real | Ten reserved story pages, themes, existing fictional examples, share-your-story route | ST01–ST10 await supplied material, permissions and review. The three fictional design examples are labelled. Ten genuine finished stories have not been created. |
@@ -27,7 +27,7 @@ The Law:
 - Friends, groups & responsibility
 - School, work & everyday rights
 
-The Terrain:
+The Street:
 
 - Read the situation
 - How you carry yourself

@@ -3,7 +3,7 @@ import { ruleBranches, ruleTopics, ruleTopicHref, pathBranches, pathFields, path
 import { pathLessons } from "../../src/lib/paths";
 describe("the agreed page tree", () => {
   it("provides two rule branches, three learning branches and unique routable leaf pages", () => {
-    expect(ruleBranches.map(b => b.slug)).toEqual(["the-law", "the-terrain"]);
+    expect(ruleBranches.map(b => b.slug)).toEqual(["the-law", "the-street"]);
     expect(pathBranches).toHaveLength(3);
     const routes = [...ruleTopics.map(ruleTopicHref), ...pathFields.map(pathFieldHref)];
     expect(new Set(routes).size).toBe(routes.length);
@@ -21,6 +21,15 @@ describe("the agreed page tree", () => {
   });
 });
 describe("manual discovery and contextual help", () => {
+  it("keeps old topic references valid after renaming the branch", () => {
+    const oldContext = "rules/the-terrain/read-the-situation";
+    expect(validSupportContext(oldContext)).toBe(true);
+    expect(supportContextById(oldContext)).toEqual({
+      id: "rules/the-street/read-the-situation",
+      label: "READ THE SITUATION.",
+      topic: "rules"
+    });
+  });
   it("sanitises URL input and retains explicit discovery choices", () => {
     const s = discoveryState({
       area: "east",

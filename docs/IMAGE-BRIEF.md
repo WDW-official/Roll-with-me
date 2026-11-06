@@ -7,7 +7,7 @@ The first five asset groups that would add most value are:
 | Asset group | Where it appears | What to supply |
 | --- | --- | --- |
 | The Law | Know the Rules → The Law and its topics | A neutral London civic/architectural image or original editorial legal graphic. Space for a headline. Avoid racial/appearance shorthand for offending. |
-| The Terrain | Know the Rules → The Terrain and its topics | A calm public street or transport setting. Prefer no identifiable people. No territorial, gang or targeting imagery. |
+| The Street | Know the Rules → The Street and its topics | A calm public street or transport setting. Prefer no identifiable people. No territorial, gang or targeting imagery. |
 | Tech & Engineering | Category and field pages | Consented workshop/equipment images. Distinguish robotics, mechanical engineering, electrical/electronics and coding where possible. |
 | Sports | Sports category and field pages | Welcoming courts, pitches or consented supervised sessions. Show participation and suitable safety arrangements. |
 | Vocational & Practical | Category and field pages | Safe carpentry, vehicle-training and other workshop details, with appropriate supervision/PPE where people are shown. |

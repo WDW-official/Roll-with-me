@@ -10,8 +10,8 @@
         "art": "code"
       },
       {
-        "slug": "the-terrain",
-        "title": "THE TERRAIN.",
+        "slug": "the-street",
+        "title": "THE STREET.",
         "purpose": "Read situations, think about your choices and move with awareness. Everyday common sense, respect and a way to get support.",
         "art": "route"
       }
@@ -162,7 +162,7 @@
         "slug": "read-the-situation",
         "title": "READ THE SITUATION.",
         "purpose": "Notice a situation changing, give yourself space and identify safe public help.",
-        "branch": "the-terrain",
+        "branch": "the-street",
         "art": "route",
         "guideSlugs": [],
         "questions": [
@@ -170,13 +170,13 @@
           "Where could you find a staffed public place?",
           "When might leaving be the safer choice?"
         ],
-        "url": "/know-the-rules/the-terrain/read-the-situation"
+        "url": "/know-the-rules/the-street/read-the-situation"
       },
       {
         "slug": "how-you-carry-yourself",
         "title": "HOW YOU CARRY YOURSELF.",
         "purpose": "Explore space, tone and gestures while respecting different personalities, access needs and cultural norms.",
-        "branch": "the-terrain",
+        "branch": "the-street",
         "art": "route",
         "guideSlugs": [],
         "questions": [
@@ -184,13 +184,13 @@
           "What helps you feel more grounded?",
           "How do needs and communication styles differ?"
         ],
-        "url": "/know-the-rules/the-terrain/how-you-carry-yourself"
+        "url": "/know-the-rules/the-street/how-you-carry-yourself"
       },
       {
         "slug": "how-you-talk",
         "title": "HOW YOU TALK WHEN THINGS GET TENSE.",
         "purpose": "Explore short, respectful ways to disengage, without promising that any phrase can guarantee safety.",
-        "branch": "the-terrain",
+        "branch": "the-street",
         "art": "route",
         "guideSlugs": [],
         "questions": [
@@ -198,13 +198,13 @@
           "How can you avoid humiliating someone?",
           "When should you stop talking and seek help?"
         ],
-        "url": "/know-the-rules/the-terrain/how-you-talk"
+        "url": "/know-the-rules/the-street/how-you-talk"
       },
       {
         "slug": "unfamiliar-places",
         "title": "MOVING THROUGH UNFAMILIAR PLACES.",
         "purpose": "Plan a public journey, know who you can contact and find support without sharing live location.",
-        "branch": "the-terrain",
+        "branch": "the-street",
         "art": "route",
         "guideSlugs": [],
         "questions": [
@@ -212,13 +212,13 @@
           "Which staffed places could help?",
           "Who is a trusted contact for you?"
         ],
-        "url": "/know-the-rules/the-terrain/unfamiliar-places"
+        "url": "/know-the-rules/the-street/unfamiliar-places"
       },
       {
         "slug": "friends-and-getting-home",
         "title": "OUT WITH FRIENDS. GETTING HOME.",
         "purpose": "Think about travel plans, changing circumstances and pressure to stay when you want to leave.",
-        "branch": "the-terrain",
+        "branch": "the-street",
         "art": "route",
         "guideSlugs": [],
         "questions": [
@@ -226,13 +226,13 @@
           "What if the group wants different things?",
           "Who could help if plans change?"
         ],
-        "url": "/know-the-rules/the-terrain/friends-and-getting-home"
+        "url": "/know-the-rules/the-street/friends-and-getting-home"
       },
       {
         "slug": "your-code",
         "title": "YOUR CODE: RESPECT & BOUNDARIES.",
         "purpose": "Think through personal values, accountability, consent and loyalty with boundaries.",
-        "branch": "the-terrain",
+        "branch": "the-street",
         "art": "route",
         "guideSlugs": [],
         "questions": [
@@ -240,13 +240,13 @@
           "How can you support a friend without joining a conflict?",
           "Which boundaries matter to you?"
         ],
-        "url": "/know-the-rules/the-terrain/your-code"
+        "url": "/know-the-rules/the-street/your-code"
       },
       {
         "slug": "online-to-offline",
         "title": "WHEN ONLINE CONFLICT MOVES OFFLINE.",
         "purpose": "Explore ways to step back from escalating messages and avoid being pulled into a confrontation.",
-        "branch": "the-terrain",
+        "branch": "the-street",
         "art": "route",
         "guideSlugs": [],
         "questions": [
@@ -254,13 +254,13 @@
           "Who could help you think it through?",
           "What would a safer next step look like?"
         ],
-        "url": "/know-the-rules/the-terrain/online-to-offline"
+        "url": "/know-the-rules/the-street/online-to-offline"
       },
       {
         "slug": "leave-and-get-help",
         "title": "WHEN TO LEAVE. WHEN TO GET HELP.",
         "purpose": "Make room for a safer exit, trusted support and emergency alternatives. Another person's violence is not your fault.",
-        "branch": "the-terrain",
+        "branch": "the-street",
         "art": "route",
         "guideSlugs": [],
         "questions": [
@@ -268,7 +268,7 @@
           "Which trusted service or person could help?",
           "Is someone in immediate danger?"
         ],
-        "url": "/know-the-rules/the-terrain/leave-and-get-help"
+        "url": "/know-the-rules/the-street/leave-and-get-help"
       }
     ]
   },

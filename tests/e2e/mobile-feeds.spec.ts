@@ -1,5 +1,17 @@
 import { test, expect } from "@playwright/test";
-test("the law and terrain lead to distinct topic pages", async ({
+test("old branch URLs redirect to The Street and retain query parameters", async ({ page, request }) => {
+  const branchRedirect = await request.get("/know-the-rules/the-terrain", { maxRedirects: 0 });
+  expect(branchRedirect.status()).toBe(308);
+  expect(branchRedirect.headers().location).toBe("/know-the-rules/the-street");
+  const response = await request.get("/know-the-rules/the-terrain/read-the-situation?from=legacy", { maxRedirects: 0 });
+  expect(response.status()).toBe(308);
+  expect(response.headers().location).toBe("/know-the-rules/the-street/read-the-situation?from=legacy");
+  await page.goto("/know-the-rules/the-terrain/read-the-situation?from=legacy");
+  await expect(page).toHaveURL(/the-street\/read-the-situation\?from=legacy/);
+  await expect(page.getByRole("link", { name: "THE STREET.", exact: true })).toBeVisible();
+  await expect(page.locator(".has-editorial-image img")).toHaveCount(1);
+});
+test("the law and street lead to distinct topic pages", async ({
   page
 }) => {
   await page.goto("/know-the-rules");
@@ -7,7 +19,7 @@ test("the law and terrain lead to distinct topic pages", async ({
     name: /THE LAW/
   })).toBeInViewport();
   await page.getByRole("button", {
-    name: "THE TERRAIN",
+    name: "THE STREET",
     exact: true
   }).click();
   await expect(page.getByRole("article", {
@@ -17,7 +29,7 @@ test("the law and terrain lead to distinct topic pages", async ({
     name: "Explore the topic",
     exact: true
   }).first().click();
-  await expect(page).toHaveURL(/the-terrain\/read-the-situation/);
+  await expect(page).toHaveURL(/the-street\/read-the-situation/);
   await expect(page.getByRole("heading", {
     level: 1
   })).toHaveText("READ THE SITUATION.");

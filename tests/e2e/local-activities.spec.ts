@@ -1,10 +1,16 @@
 import { test, expect } from "@playwright/test";
 import { activityCategories, londonAreas } from "../../src/lib/structure";
 
-test("entry asks for an explicit catchment", async ({ page }) => {
+test("entry defaults to North while preserving explicit catchments", async ({ page }) => {
   await page.goto("/roll-with-me");
+  await expect(page).toHaveURL(/\/roll-with-me\?area=North$/);
   await expect(page.getByRole("group", { name: "Choose your London area" }).getByRole("button")).toHaveCount(4);
-  await expect(page.getByRole("region", { name: "Activity categories" })).toHaveCount(0);
+  await expect(page.getByRole("region", { name: "Activity categories" }).getByRole("article")).toHaveCount(7);
+  await page.goto("/roll-with-me?area=East");
+  await expect(page).toHaveURL(/area=East$/);
+  await page.goto("/roll-with-me?age=16%E2%80%9317");
+  await expect(page).toHaveURL(/area=North&age=16%E2%80%9317$/);
+  await expect(page.getByLabel("Choose age band")).toHaveValue("16–17");
   await page.goto("/roll-with-me?area=Unknown");
   await expect(page.getByRole("status")).toContainText("Choose North, East, South or West");
 });

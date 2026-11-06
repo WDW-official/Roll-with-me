@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
       hostname: "res.cloudinary.com"
     }]
   },
+  async redirects() {
+    return [{
+      source: "/know-the-rules/the-terrain/:path*",
+      destination: "/know-the-rules/the-street/:path*",
+      permanent: true
+    }];
+  },
   async headers() {
     return [{
       source: "/(.*)",

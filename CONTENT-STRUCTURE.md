@@ -10,7 +10,7 @@ The primary navigation remains: **Know the Rules / Choose a Path / Roll With Me 
 
 **Purpose:** Understand the law, think through consequences, read situations and make safer choices. Know your rights. Move with awareness. Treat other people with dignity. Roll safe.
 
-The landing page has two main doors: **THE LAW — rights, consequences and common sense** and **THE TERRAIN — everyday situations, your personal code and common sense**. Practical awareness and ethics complement legal information; they are not presented as substitutes for it.
+The landing page has two main doors: **THE LAW — rights, consequences and common sense** and **THE STREET — everyday situations, your personal code and common sense**. Practical awareness and ethics complement legal information; they are not presented as substitutes for it.
 
 **THE LAW: proposed subpages**
 
@@ -26,7 +26,7 @@ The landing page has two main doors: **THE LAW — rights, consequences and comm
 | Friends, groups & shared responsibility | Explore peer pressure and legal responsibility through reviewed examples. Explain that a person's presence or friendships do not by themselves decide liability. |
 | School, work & everyday rights | A place for reviewed school/college, apprenticeship, employment and money basics as the section grows. |
 
-**THE TERRAIN: proposed subpages**
+**THE STREET: proposed subpages**
 
 | Subpage | What the page is for |
 | --- | --- |

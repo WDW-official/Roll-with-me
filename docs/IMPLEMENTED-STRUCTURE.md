@@ -4,7 +4,7 @@ Source update: 31 October 2026. This record describes the page structure now wri
 
 | Area | Source routes and behaviour |
 | --- | --- |
-| Know the Rules | `/know-the-rules` offers The Law and The Terrain. `/know-the-rules/[branch]` browses branch topics. `/know-the-rules/[branch]/[topic]` resolves 17 topic pages: 9 law and 8 terrain. Existing eligible guide drafts/approved guides are matched by slug and retain their actual review warnings. Empty topics show their purpose, questions, private reflection and preparation state. |
+| Know the Rules | `/know-the-rules` offers The Law and The Street. `/know-the-rules/[branch]` browses branch topics. `/know-the-rules/[branch]/[topic]` resolves 17 topic pages: 9 law and 8 street. Existing eligible guide drafts/approved guides are matched by slug and retain their actual review warnings. Empty topics show their purpose, questions, private reflection and preparation state. |
 | Facts, Context & Myths | `/know-the-rules/facts-and-myths` describes how evidence will be interpreted. It contains no invented demographic figures or offender-look images. |
 | Choose a Path | `/choose-a-path` offers three branches. `/choose-a-path/[slug]` recognises branch slugs and preserves the existing nine introduction articles. `/choose-a-path/[slug]/[field]` resolves 18 fields across Tech & Engineering, Sports and Vocational & Practical. Each field includes basic concepts, age-aware routes, related existing introductions, resource/project preparation notices, local activity links and contextual help. `/choose-a-path/directory` provides a list alternative. |
 | Roll With Me | `/roll-with-me` accepts validated `area`, `borough`, `age` and `category` query values. It keeps all four direction tabs visible. `/roll-with-me/categories` and `/roll-with-me/categories/[category]` expose six category views. `/roll-with-me/[area]` lists the current editable borough shortcuts, and `/roll-with-me/[area]/[borough]` opens the local feed. Choices are carried into activity detail/registration URLs, with a back/change-area navigation bar. No geolocation is requested. |
@@ -13,7 +13,7 @@ Source update: 31 October 2026. This record describes the page structure now wri
 
 The source-of-truth catalogue is `src/lib/structure.ts`. New page records distinguish topic/field outlines and awaiting-material story slots from actual published content. A new page is not automatically a reviewed legal guide, course, real story or available programme.
 
-These new outline/field records are currently code-defined. A dedicated live CMS authoring workflow for full terrain articles, field resources and video selections has not been connected. Existing story, opportunity and legal-guide review tools remain separate. Full content can be developed against the templates without implying that an admin editor already manages every new field.
+These new outline/field records are currently code-defined. A dedicated live CMS authoring workflow for full street articles, field resources and video selections has not been connected. Existing story, opportunity and legal-guide review tools remain separate. Full content can be developed against the templates without implying that an admin editor already manages every new field.
 
 **Ask RWM**
 

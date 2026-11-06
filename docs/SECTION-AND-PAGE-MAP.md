@@ -124,17 +124,17 @@ Questions to develop:
 - Who can explain your options?
 - How can you ask for support?
 
-### THE TERRAIN.
+### THE STREET.
 
 Read situations, think about your choices and move with awareness. Everyday common sense, respect and a way to get support.
 
-Branch route: `/know-the-rules/the-terrain`.
+Branch route: `/know-the-rules/the-street`.
 
 #### READ THE SITUATION.
 
 Notice a situation changing, give yourself space and identify safe public help.
 
-Route: `/know-the-rules/the-terrain/read-the-situation`.
+Route: `/know-the-rules/the-street/read-the-situation`.
 
 Questions to develop:
 
@@ -146,7 +146,7 @@ Questions to develop:
 
 Explore space, tone and gestures while respecting different personalities, access needs and cultural norms.
 
-Route: `/know-the-rules/the-terrain/how-you-carry-yourself`.
+Route: `/know-the-rules/the-street/how-you-carry-yourself`.
 
 Questions to develop:
 
@@ -158,7 +158,7 @@ Questions to develop:
 
 Explore short, respectful ways to disengage, without promising that any phrase can guarantee safety.
 
-Route: `/know-the-rules/the-terrain/how-you-talk`.
+Route: `/know-the-rules/the-street/how-you-talk`.
 
 Questions to develop:
 
@@ -170,7 +170,7 @@ Questions to develop:
 
 Plan a public journey, know who you can contact and find support without sharing live location.
 
-Route: `/know-the-rules/the-terrain/unfamiliar-places`.
+Route: `/know-the-rules/the-street/unfamiliar-places`.
 
 Questions to develop:
 
@@ -182,7 +182,7 @@ Questions to develop:
 
 Think about travel plans, changing circumstances and pressure to stay when you want to leave.
 
-Route: `/know-the-rules/the-terrain/friends-and-getting-home`.
+Route: `/know-the-rules/the-street/friends-and-getting-home`.
 
 Questions to develop:
 
@@ -194,7 +194,7 @@ Questions to develop:
 
 Think through personal values, accountability, consent and loyalty with boundaries.
 
-Route: `/know-the-rules/the-terrain/your-code`.
+Route: `/know-the-rules/the-street/your-code`.
 
 Questions to develop:
 
@@ -206,7 +206,7 @@ Questions to develop:
 
 Explore ways to step back from escalating messages and avoid being pulled into a confrontation.
 
-Route: `/know-the-rules/the-terrain/online-to-offline`.
+Route: `/know-the-rules/the-street/online-to-offline`.
 
 Questions to develop:
 
@@ -218,7 +218,7 @@ Questions to develop:
 
 Make room for a safer exit, trusted support and emergency alternatives. Another person's violence is not your fault.
 
-Route: `/know-the-rules/the-terrain/leave-and-get-help`.
+Route: `/know-the-rules/the-street/leave-and-get-help`.
 
 Questions to develop:
 
@@ -228,7 +228,7 @@ Questions to develop:
 
 ### What a rules topic page currently contains
 
-Title and purpose; draft/preparation status; original artwork; existing draft legal text and official sources where matched; exploration questions; optional private reflection; related topics; self/parent-carer and independent help links. Terrain lessons currently stop at purpose and reflection prompts; full scripts, worked scenarios and resource review remain to be authored. Legal guides need qualified review. Practical suggestions never guarantee safety, excuse violence or imply that appearance removes rights.
+Title and purpose; draft/preparation status; original artwork; existing draft legal text and official sources where matched; exploration questions; optional private reflection; related topics; self/parent-carer and independent help links. Street lessons currently stop at purpose and reflection prompts; full scripts, worked scenarios and resource review remain to be authored. Legal guides need qualified review. Practical suggestions never guarantee safety, excuse violence or imply that appearance removes rights.
 
 ## Choose a Path
 

@@ -16,7 +16,7 @@ The primary audience is approximately 13–20, with routes for 13–15, 16–17 
 
 | Section | What it communicates | Subsections | Main user action |
 | --- | --- | --- | --- |
-| Know the Rules | Understand the law, your rights, real consequences and everyday judgment. | The Law: 9 topics. The Terrain: 8 topics. Facts, Context & Myths. | Choose a topic, explore information/reflection, follow official sources or ask for help. |
+| Know the Rules | Understand the law, your rights, real consequences and everyday judgment. | The Law: 9 topics. The Street: 8 topics. Facts, Context & Myths. | Choose a topic, explore information/reflection, follow official sources or ask for help. |
 | Choose a Path | An interest can become a small first step, then a possible learning or work route. | Tech & Engineering: 7 fields. Sports: 5. Vocational & Practical: 6. | Choose a field, learn starter concepts, compare age-appropriate routes and explore local tasters. |
 | Roll With Me | Your area can offer people, activities and opportunities worth getting involved in. | North/East/West/South London; boroughs; 6 activity categories. | Select area/age/interest, browse checked details and join only a genuinely verified open activity. |
 | The Real | Experiences have context, consequences, turning points and possible ways forward. | Ten reserved story spaces; themes; fictional examples; share-your-story expression of interest. | Read/watch an approved story, reflect privately, explore a path or seek help. |
@@ -31,7 +31,7 @@ Homepage → one of four sections → branch, topic or local area → swipeable 
 
 The four mobile hubs use vertical card scrolling with scroll snapping. Topic/area selectors stay prominent, and previous/next controls support alternatives to touch. Full articles use normal reading layouts. The source includes a persistent mobile four-section navigation, nested breadcrumbs, search, self/parent-carer help links and light/dark theme tokens. There is no autoplay, unrestricted youth chat, adult-to-child direct messaging, public youth profile or live location sharing.
 
-A rules topic is more than a title: it has a purpose, artwork, preparation status, draft guide text where available, exploration questions, optional private reflection, related topics and help. A learning field adds basic concepts, three age routes, next-step prompts, relevant existing introduction articles, resource preparation notices, supervision guidance and local activity links. Most field-specific projects, video shortlists and full terrain lesson scripts still need authoring.
+A rules topic is more than a title: it has a purpose, artwork, preparation status, draft guide text where available, exploration questions, optional private reflection, related topics and help. A learning field adds basic concepts, three age routes, next-step prompts, relevant existing introduction articles, resource preparation notices, supervision guidance and local activity links. Most field-specific projects, video shortlists and full street lesson scripts still need authoring.
 
 ## Current source contents and their limits
 
@@ -52,7 +52,7 @@ A rules topic is more than a title: it has a purpose, artwork, preparation statu
 
 ## Safeguarding, content and privacy boundaries
 
-Keep The Law distinct from The Terrain. Legal claims need jurisdiction, authoritative references, a designated verified qualified reviewer, review dates and correction handling. Terrain material should teach respectful communication, boundaries, leaving conflict and finding support. Do not present race, clothing, group size or being out late as automatic grounds for stop/search. Do not invent demographic statistics or depict an “offender look”. Practical suggestions do not guarantee safety or transfer blame to a victim.
+Keep The Law distinct from The Street. Legal claims need jurisdiction, authoritative references, a designated verified qualified reviewer, review dates and correction handling. Street material should teach respectful communication, boundaries, leaving conflict and finding support. Do not present race, clothing, group size or being out late as automatic grounds for stop/search. Do not invent demographic statistics or depict an “offender look”. Practical suggestions do not guarantee safety or transfer blame to a victim.
 
 Knife content must not recommend carrying, present a pocketknife exception as a protection loophole or explain attack targeting. Offences depend on facts, intent, evidence and outcomes. Immediate danger in the UK: 999. Emergency routes must work independently of Ask RWM availability. High-risk cases are never automatically answered/resolved by AI.
 
@@ -72,7 +72,7 @@ Required stack: Next.js App Router, React, strict TypeScript, Tailwind CSS, Mong
 | `src/app/api/[...path]/route.ts` | Server-side API dispatch, validation, role and workflow checks. |
 | `src/lib/structure.ts` | Branches, 17 rule topics, 18 fields, six categories, ten slots, local URL state, public support contexts. |
 | `src/components/swipe-feed.tsx` | Four main swipe feeds, tabs/filters, card controls and contextual help. |
-| `src/app/know-the-rules/[branch]/[topic]/page.tsx` | Individual legal/terrain topic layout. |
+| `src/app/know-the-rules/[branch]/[topic]/page.tsx` | Individual legal/street topic layout. |
 | `src/app/choose-a-path/[slug]/[field]/page.tsx` | Individual field layout. `[slug]` is intentional for compatibility with branch/intro pages. |
 | `src/components/support-form.tsx`, `context-support.tsx` | Self/parent form and page-context support links. |
 | `src/lib/models.ts`, `db.ts` | Strict MongoDB models/indexes and cached serverless connection. |
