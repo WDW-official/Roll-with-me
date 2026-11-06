@@ -1,5 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { publishableGuide, publishableOpportunity, csvCell, ageNeedsGuardian, hasRole } from "../../src/lib/policy";
+import {
+  publishableGuide,
+  publishableOpportunity,
+  csvCell,
+  ageNeedsGuardian,
+  hasRole,
+} from "../../src/lib/policy";
 const now = new Date("2026-10-30T12:00:00Z");
 describe("legal publication gate", () => {
   const reviewed = {
@@ -8,28 +14,42 @@ describe("legal publication gate", () => {
     reviewerQualified: true,
     reviewedAt: "2026-10-01",
     nextReviewAt: "2027-01-01",
-    sourceIds: ["gov-knives"]
+    sourceIds: ["gov-knives"],
   };
   it("requires a real designation, qualification and a current review", () => {
     expect(publishableGuide(reviewed, now)).toBe(true);
-    for (const partial of [{
-      reviewer: null
-    }, {
-      reviewerQualified: false
-    }, {
-      reviewedAt: null
-    }, {
-      reviewedAt: "2027-01-01"
-    }, {
-      nextReviewAt: "2026-01-01"
-    }, {
-      sourceIds: []
-    }, {
-      status: "pending_review"
-    }]) expect(publishableGuide({
-      ...reviewed,
-      ...partial
-    }, now)).toBe(false);
+    for (const partial of [
+      {
+        reviewer: null,
+      },
+      {
+        reviewerQualified: false,
+      },
+      {
+        reviewedAt: null,
+      },
+      {
+        reviewedAt: "2027-01-01",
+      },
+      {
+        nextReviewAt: "2026-01-01",
+      },
+      {
+        sourceIds: [],
+      },
+      {
+        status: "pending_review",
+      },
+    ])
+      expect(
+        publishableGuide(
+          {
+            ...reviewed,
+            ...partial,
+          },
+          now,
+        ),
+      ).toBe(false);
   });
 });
 describe("opportunity publication gate", () => {
@@ -39,28 +59,42 @@ describe("opportunity publication gate", () => {
     riskAssessmentApproved: true,
     providerVerified: true,
     lastChecked: "2026-10-01",
-    demo: false
+    demo: false,
   };
   it("blocks demo, stale, future-dated and unverified entries", () => {
     expect(publishableOpportunity(verified, now)).toBe(true);
-    for (const partial of [{
-      demo: true
-    }, {
-      verified: false
-    }, {
-      providerVerified: false
-    }, {
-      riskAssessmentApproved: false
-    }, {
-      lastChecked: null
-    }, {
-      lastChecked: "2026-01-01"
-    }, {
-      lastChecked: "2027-01-01"
-    }]) expect(publishableOpportunity({
-      ...verified,
-      ...partial
-    }, now)).toBe(false);
+    for (const partial of [
+      {
+        demo: true,
+      },
+      {
+        verified: false,
+      },
+      {
+        providerVerified: false,
+      },
+      {
+        riskAssessmentApproved: false,
+      },
+      {
+        lastChecked: null,
+      },
+      {
+        lastChecked: "2026-01-01",
+      },
+      {
+        lastChecked: "2027-01-01",
+      },
+    ])
+      expect(
+        publishableOpportunity(
+          {
+            ...verified,
+            ...partial,
+          },
+          now,
+        ),
+      ).toBe(false);
   });
 });
 describe("privacy boundaries", () => {
@@ -75,6 +109,16 @@ describe("privacy boundaries", () => {
   });
 });
 describe("CSV export safety", () => {
-  it("quotes and escapes narrative values", () => expect(csvCell('a,"b"\nc')).toBe('"a,""b""\nc"'));
-  it.each(["=HYPERLINK(\"bad\")", "+SUM(A1:A4)", "-5+1", "@SUM(1)", "  =1+1", "\t=1"])("neutralises formula input %s", value => expect(csvCell(value)).toBe('"\'' + value.replaceAll('"', '""') + '"'));
+  it("quotes and escapes narrative values", () =>
+    expect(csvCell('a,"b"\nc')).toBe('"a,""b""\nc"'));
+  it.each([
+    '=HYPERLINK("bad")',
+    "+SUM(A1:A4)",
+    "-5+1",
+    "@SUM(1)",
+    "  =1+1",
+    "\t=1",
+  ])("neutralises formula input %s", (value) =>
+    expect(csvCell(value)).toBe("\"'" + value.replaceAll('"', '""') + '"'),
+  );
 });

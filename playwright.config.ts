@@ -7,29 +7,34 @@ export default defineConfig({
   reporter: "list",
   use: {
     baseURL,
-    ...(process.env.PLAYWRIGHT_CHANNEL ? { channel: process.env.PLAYWRIGHT_CHANNEL } : {}),
-    trace: "retain-on-failure"
+    ...(process.env.PLAYWRIGHT_CHANNEL
+      ? { channel: process.env.PLAYWRIGHT_CHANNEL }
+      : {}),
+    trace: "retain-on-failure",
   },
-  projects: [{
-    name: "desktop",
-    use: {
-      ...devices["Desktop Chrome"]
-    }
-  }, {
-    name: "mobile",
-    use: {
-      ...devices["iPhone 13"],
-      defaultBrowserType: "chromium"
-    }
-  }],
+  projects: [
+    {
+      name: "desktop",
+      use: {
+        ...devices["Desktop Chrome"],
+      },
+    },
+    {
+      name: "mobile",
+      use: {
+        ...devices["iPhone 13"],
+        defaultBrowserType: "chromium",
+      },
+    },
+  ],
   webServer: {
     command: process.env.PLAYWRIGHT_SERVER_COMMAND ?? "npm run dev",
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     env: {
       DEMO_MODE: "true",
-      APP_URL: baseURL
+      APP_URL: baseURL,
     },
-    timeout: 120000
-  }
+    timeout: 120000,
+  },
 });

@@ -1,6 +1,17 @@
 export type AgeBand = "13–15" | "16–17" | "18–20";
 export type Zone = "North" | "South" | "East" | "West";
-export type Role = "participant" | "parent_pending" | "parent_verified" | "editor" | "provider" | "moderator" | "safeguarding" | "legal_reviewer" | "researcher" | "operations" | "admin";
+export type Role =
+  | "participant"
+  | "parent_pending"
+  | "parent_verified"
+  | "editor"
+  | "provider"
+  | "moderator"
+  | "safeguarding"
+  | "legal_reviewer"
+  | "researcher"
+  | "operations"
+  | "admin";
 export type Status = "draft" | "pending_review" | "published" | "expired";
 export interface Opportunity {
   canonicalCategory?: import("./structure").ActivityCategorySlug;
@@ -41,7 +52,12 @@ export interface Story {
   series: string;
   excerpt: string;
   duration: string;
-  type: "Scripted composite" | "Animation concept" | "First-person account" | "Anonymised voice" | "Positive journey";
+  type:
+    | "Scripted composite"
+    | "Animation concept"
+    | "First-person account"
+    | "Anonymised voice"
+    | "Positive journey";
   theme: string;
   art: string;
   contentNote: string;

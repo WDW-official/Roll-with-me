@@ -8,39 +8,85 @@ import { bookableOpportunity, inCatchment } from "@/lib/local-discovery";
 import { discoveryState } from "@/lib/structure";
 export default async function Register({
   params,
-  searchParams
+  searchParams,
 }: {
   params: Promise<{
     slug: string;
   }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const {
-    slug
-  } = await params;
-  const item = (await getOpportunities()).find(o => o.slug === slug);
+  const { slug } = await params;
+  const item = (await getOpportunities()).find((o) => o.slug === slug);
   if (!item) notFound();
   const user = await currentUser();
   const query = await searchParams;
   const state = discoveryState(query);
-  const allowed = bookableOpportunity(item, state.age) && (!state.area || inCatchment(item, state.area)) && (!user || item.ageBands.some(a => a === user.ageBand));
-  return <div className="page-width page-content"><LocalContext query={query} /><PageIntro label="REGISTRATION / YOUR NEXT MOVE" title={item.title} description="Your booking is private. Operational staff can access emergency information when needed for running the session." />{item.demo ? <><DemoNotice /><p className="prose">No registration is open for this illustrative session.</p></> : !allowed ? <p className="content-note" role="status">Registration is unavailable for this activity and age selection.</p> : !user ? <ButtonLink href="/sign-in">Sign in to register</ButtonLink> : <><div className="notice"><p>Under 18? Your request stays pending until a separate verified guardian gives event-specific consent. You will receive a private one-time code to share with them. No other account activity is shared. A waiting list applies if the session fills up.</p></div><RwmForm endpoint="/api/bookings" extra={{
-        slug
-      }} submitLabel="Request a place" fields={[{
-        name: "emergencyName",
-        label: "Emergency contact name",
-        required: true,
-        maxLength: 80
-      }, {
-        name: "emergencyPhone",
-        label: "Emergency contact phone",
-        type: "tel",
-        required: true,
-        maxLength: 24
-      }, {
-        name: "noticeAccepted",
-        label: "I understand how booking, emergency contact and guardian consent information will be used, and I have permission to share this contact.",
-        type: "checkbox",
-        required: true
-      }]} /></>}</div>;
+  const allowed =
+    bookableOpportunity(item, state.age) &&
+    (!state.area || inCatchment(item, state.area)) &&
+    (!user || item.ageBands.some((a) => a === user.ageBand));
+  return (
+    <div className="page-width page-content">
+      <LocalContext query={query} />
+      <PageIntro
+        label="REGISTRATION / YOUR NEXT MOVE"
+        title={item.title}
+        description="Your booking is private. Operational staff can access emergency information when needed for running the session."
+      />
+      {item.demo ? (
+        <>
+          <DemoNotice />
+          <p className="prose">
+            No registration is open for this illustrative session.
+          </p>
+        </>
+      ) : !allowed ? (
+        <p className="content-note" role="status">
+          Registration is unavailable for this activity and age selection.
+        </p>
+      ) : !user ? (
+        <ButtonLink href="/sign-in">Sign in to register</ButtonLink>
+      ) : (
+        <>
+          <div className="notice">
+            <p>
+              Under 18? Your request stays pending until a separate verified
+              guardian gives event-specific consent. You will receive a private
+              one-time code to share with them. No other account activity is
+              shared. A waiting list applies if the session fills up.
+            </p>
+          </div>
+          <RwmForm
+            endpoint="/api/bookings"
+            extra={{
+              slug,
+            }}
+            submitLabel="Request a place"
+            fields={[
+              {
+                name: "emergencyName",
+                label: "Emergency contact name",
+                required: true,
+                maxLength: 80,
+              },
+              {
+                name: "emergencyPhone",
+                label: "Emergency contact phone",
+                type: "tel",
+                required: true,
+                maxLength: 24,
+              },
+              {
+                name: "noticeAccepted",
+                label:
+                  "I understand how booking, emergency contact and guardian consent information will be used, and I have permission to share this contact.",
+                type: "checkbox",
+                required: true,
+              },
+            ]}
+          />
+        </>
+      )}
+    </div>
+  );
 }

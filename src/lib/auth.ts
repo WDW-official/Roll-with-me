@@ -13,21 +13,22 @@ export async function currentUser() {
   const session = await Session.findOne({
     tokenHash: hash(token),
     expiresAt: {
-      $gt: new Date()
-    }
+      $gt: new Date(),
+    },
   }).lean();
   if (!session) return null;
   return User.findOne({
     _id: session.userId,
     disabledAt: {
-      $exists: false
-    }
+      $exists: false,
+    },
   }).lean();
 }
 export async function requireUser(roles?: Role[]) {
   const user = await currentUser();
   if (!user) throw new HttpError(401, "Sign in to continue.");
-  if (roles && !roles.includes(user.role as Role)) throw new HttpError(403, "You do not have permission for this action.");
+  if (roles && !roles.includes(user.role as Role))
+    throw new HttpError(403, "You do not have permission for this action.");
   return user;
 }
 export async function createSession(userId: string) {
@@ -36,13 +37,13 @@ export async function createSession(userId: string) {
   await Session.create({
     tokenHash: hash(token),
     userId,
-    expiresAt
+    expiresAt,
   });
   (await cookies()).set("rwm_session", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
-    expires: expiresAt
+    expires: expiresAt,
   });
 }

@@ -4,8 +4,8 @@ export const metadata = {
   title: "Staff workspace",
   robots: {
     index: false,
-    follow: false
-  }
+    follow: false,
+  },
 };
 export default function Page() {
   return <AdminPage section="overview" />;

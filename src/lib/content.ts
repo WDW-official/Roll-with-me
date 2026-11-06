@@ -13,22 +13,30 @@ export async function getOpportunities(): Promise<Opportunity[]> {
   const docs = await Content.find({
     kind: "opportunity",
     status: "published",
-    demo: false
+    demo: false,
   }).lean();
   const providers = await Provider.find({
-    verified: true
+    verified: true,
   }).distinct("_id");
-  return docs.filter(d => publishableOpportunity({
-    ...d,
-    ...d.data,
-    providerVerified: providers.some(p => String(p) === String(d.data.providerId))
-  })).map(d => publicOpportunity({
-    ...d.data,
-    slug: d.slug,
-    status: d.status,
-    demo: false,
-    providerVerified: true
-  } as Opportunity));
+  return docs
+    .filter((d) =>
+      publishableOpportunity({
+        ...d,
+        ...d.data,
+        providerVerified: providers.some(
+          (p) => String(p) === String(d.data.providerId),
+        ),
+      }),
+    )
+    .map((d) =>
+      publicOpportunity({
+        ...d.data,
+        slug: d.slug,
+        status: d.status,
+        demo: false,
+        providerVerified: true,
+      } as Opportunity),
+    );
 }
 export async function getStories(): Promise<Story[]> {
   await connection();
@@ -40,14 +48,16 @@ export async function getStories(): Promise<Story[]> {
     "data.editorialApproved": true,
     "data.safeguardingApproved": true,
     "data.releaseApproved": true,
-    demo: false
+    demo: false,
   }).lean();
-  return docs.map(d => publicStory({
-    ...d.data,
-    slug: d.slug,
-    status: d.status,
-    demo: false
-  } as Story));
+  return docs.map((d) =>
+    publicStory({
+      ...d.data,
+      slug: d.slug,
+      status: d.status,
+      demo: false,
+    } as Story),
+  );
 }
 export async function getGuides(): Promise<Guide[]> {
   await connection();
@@ -56,29 +66,41 @@ export async function getGuides(): Promise<Guide[]> {
   const docs = await Content.find({
     kind: "guide",
     status: "published",
-    demo: false
+    demo: false,
   }).lean();
-  const reviewed = docs.filter(d => publishableGuide({
-    ...d,
-    ...d.data
-  }));
+  const reviewed = docs.filter((d) =>
+    publishableGuide({
+      ...d,
+      ...d.data,
+    }),
+  );
   const reviewers = await User.find({
     _id: {
-      $in: reviewed.map(d => d.data.reviewer)
+      $in: reviewed.map((d) => d.data.reviewer),
     },
     role: "legal_reviewer",
     qualificationVerified: true,
     disabledAt: {
-      $exists: false
-    }
-  }).select("displayName").lean();
-  return reviewed.filter(d => reviewers.some(r => String(r._id) === String(d.data.reviewer))).map(d => publicGuide({
-    ...d.data,
-    slug: d.slug,
-    status: d.status,
-    reviewer: reviewers.find(r => String(r._id) === String(d.data.reviewer))!.displayName,
-    demo: false
-  } as Guide));
+      $exists: false,
+    },
+  })
+    .select("displayName")
+    .lean();
+  return reviewed
+    .filter((d) =>
+      reviewers.some((r) => String(r._id) === String(d.data.reviewer)),
+    )
+    .map((d) =>
+      publicGuide({
+        ...d.data,
+        slug: d.slug,
+        status: d.status,
+        reviewer: reviewers.find(
+          (r) => String(r._id) === String(d.data.reviewer),
+        )!.displayName,
+        demo: false,
+      } as Guide),
+    );
 }
 export async function getAreaBoroughs(): Promise<Record<string, string[]>> {
   await connection();
@@ -89,9 +111,11 @@ export async function getAreaBoroughs(): Promise<Record<string, string[]>> {
     North: [],
     East: [],
     West: [],
-    South: []
+    South: [],
   };
-  for (const area of areas) for (const zone of area.zones) if (result[zone]) result[zone].push(area.borough);
+  for (const area of areas)
+    for (const zone of area.zones)
+      if (result[zone]) result[zone].push(area.borough);
   for (const zone of Object.keys(result)) result[zone].sort();
   return result;
 }

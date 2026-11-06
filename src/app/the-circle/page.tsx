@@ -2,8 +2,66 @@ import Link from "next/link";
 import { MessageCircle, Lightbulb, Users } from "lucide-react";
 import { PageIntro } from "@/components/ui";
 export const metadata = {
-  title: "The Circle"
+  title: "The Circle",
 };
 export default function Circle() {
-  return <div className="page-width page-content"><PageIntro label="THE CIRCLE / COMMUNITY & VOICE" title={"YOUR VOICE.\nPART OF THE PICTURE."} description="Questions, ideas and a say in what comes next. A safer community starts with listening — and clear boundaries." /><div className="feature-grid"><div className="feature-card"><MessageCircle /><h2>ASK SOMETHING.</h2><p>Use our structured form without a public profile. Questions go to human review. Selected anonymised questions can appear only with permission and approval.</p><Link href="/ask-rwm" className="text-link">Ask RWM ↗</Link></div><div className="feature-card"><Users /><h2>SHAPE THE MOVEMENT.</h2><p>The planned youth advisory council will help shape RWM. Recruitment and a clear participation agreement will be published before applications open.</p><Link href="/about" className="text-link">How decisions are made ↗</Link></div><div className="feature-card"><Lightbulb /><h2>MAKE YOUR AREA HEARD.</h2><p>Optional feedback and carefully reviewed studies can help us understand what young people want. Taking part is always a choice.</p><Link href="/surveys" className="text-link">Feedback & research ↗</Link></div></div><div className="prose mt-10"><h2>A COMMUNITY WITH BOUNDARIES.</h2><p>V1 has no unrestricted chat, direct messages, public personal profiles or live location sharing. Youth and adult spaces stay separate. Staff review content before it is shared publicly.</p><h2>APPROVED Q&A.</h2><p>No community questions have been published yet. When they are, you’ll see reviewed, authorised and anonymised answers here.</p></div></div>;
+  return (
+    <div className="page-width page-content">
+      <PageIntro
+        label="THE CIRCLE / COMMUNITY & VOICE"
+        title={"YOUR VOICE.\nPART OF THE PICTURE."}
+        description="Questions, ideas and a say in what comes next. A safer community starts with listening — and clear boundaries."
+      />
+      <div className="feature-grid">
+        <div className="feature-card">
+          <MessageCircle />
+          <h2>ASK SOMETHING.</h2>
+          <p>
+            Use our structured form without a public profile. Questions go to
+            human review. Selected anonymised questions can appear only with
+            permission and approval.
+          </p>
+          <Link href="/ask-rwm" className="text-link">
+            Ask RWM ↗
+          </Link>
+        </div>
+        <div className="feature-card">
+          <Users />
+          <h2>SHAPE THE MOVEMENT.</h2>
+          <p>
+            The planned youth advisory council will help shape RWM. Recruitment
+            and a clear participation agreement will be published before
+            applications open.
+          </p>
+          <Link href="/about" className="text-link">
+            How decisions are made ↗
+          </Link>
+        </div>
+        <div className="feature-card">
+          <Lightbulb />
+          <h2>MAKE YOUR AREA HEARD.</h2>
+          <p>
+            Optional feedback and carefully reviewed studies can help us
+            understand what young people want. Taking part is always a choice.
+          </p>
+          <Link href="/surveys" className="text-link">
+            Feedback & research ↗
+          </Link>
+        </div>
+      </div>
+      <div className="prose mt-10">
+        <h2>A COMMUNITY WITH BOUNDARIES.</h2>
+        <p>
+          V1 has no unrestricted chat, direct messages, public personal profiles
+          or live location sharing. Youth and adult spaces stay separate. Staff
+          review content before it is shared publicly.
+        </p>
+        <h2>APPROVED Q&A.</h2>
+        <p>
+          No community questions have been published yet. When they are, you’ll
+          see reviewed, authorised and anonymised answers here.
+        </p>
+      </div>
+    </div>
+  );
 }

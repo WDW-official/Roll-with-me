@@ -17,7 +17,7 @@ export function publicStory(s: Story): Story {
     reflection: s.reflection,
     opportunitySlug: s.opportunitySlug,
     demo: s.demo,
-    status: s.status
+    status: s.status,
   };
 }
 export function publicOpportunity(o: Opportunity): Opportunity {
@@ -52,7 +52,7 @@ export function publicOpportunity(o: Opportunity): Opportunity {
     verified: o.verified,
     demo: o.demo,
     status: o.status,
-    art: o.art
+    art: o.art,
   };
 }
 export function publicGuide(g: Guide): Guide {
@@ -68,6 +68,6 @@ export function publicGuide(g: Guide): Guide {
     reviewedAt: g.reviewedAt,
     nextReviewAt: g.nextReviewAt,
     status: g.status,
-    demo: g.demo
+    demo: g.demo,
   };
 }

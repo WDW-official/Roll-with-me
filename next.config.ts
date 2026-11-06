@@ -3,38 +3,51 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   serverExternalPackages: ["mongoose"],
   images: {
-    remotePatterns: [{
-      protocol: "https",
-      hostname: "res.cloudinary.com"
-    }]
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
   },
   async redirects() {
-    return [{
-      source: "/know-the-rules/the-terrain/:path*",
-      destination: "/know-the-rules/the-street/:path*",
-      permanent: true
-    }];
+    return [
+      {
+        source: "/know-the-rules/the-terrain/:path*",
+        destination: "/know-the-rules/the-street/:path*",
+        permanent: true,
+      },
+    ];
   },
   async headers() {
-    return [{
-      source: "/(.*)",
-      headers: [{
-        key: "X-Content-Type-Options",
-        value: "nosniff"
-      }, {
-        key: "Referrer-Policy",
-        value: "strict-origin-when-cross-origin"
-      }, {
-        key: "X-Frame-Options",
-        value: "DENY"
-      }, {
-        key: "Permissions-Policy",
-        value: "geolocation=(), camera=(), microphone=()"
-      }, {
-        key: "Content-Security-Policy",
-        value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://res.cloudinary.com; font-src 'self'; connect-src 'self' https://api.cloudinary.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
-      }]
-    }];
-  }
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "geolocation=(), camera=(), microphone=()",
+          },
+          {
+            key: "Content-Security-Policy",
+            value:
+              "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://res.cloudinary.com; font-src 'self'; connect-src 'self' https://api.cloudinary.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'",
+          },
+        ],
+      },
+    ];
+  },
 };
 export default nextConfig;

@@ -4,12 +4,20 @@ import { env } from "./env";
 import { Media } from "./models";
 import { audit, HttpError } from "./security";
 function cloud() {
-  if (!env.CLOUDINARY_CLOUD_NAME || !env.CLOUDINARY_API_KEY || !env.CLOUDINARY_API_SECRET) throw new HttpError(503, "Cloudinary has not been configured. No upload has taken place.");
+  if (
+    !env.CLOUDINARY_CLOUD_NAME ||
+    !env.CLOUDINARY_API_KEY ||
+    !env.CLOUDINARY_API_SECRET
+  )
+    throw new HttpError(
+      503,
+      "Cloudinary has not been configured. No upload has taken place.",
+    );
   cloudinary.config({
     cloud_name: env.CLOUDINARY_CLOUD_NAME,
     api_key: env.CLOUDINARY_API_KEY,
     api_secret: env.CLOUDINARY_API_SECRET,
-    secure: true
+    secure: true,
   });
   return cloudinary;
 }
@@ -21,14 +29,14 @@ export async function signUpload(actorId: string, consentReference: string) {
     public_id: publicId,
     type: "authenticated",
     overwrite: false,
-    allowed_formats: "jpg,png,webp"
+    allowed_formats: "jpg,png,webp",
   };
   const record = await Media.create({
     publicId,
     ownerId: actorId,
     resourceType: "image",
     consentReference,
-    rightsConfirmed: true
+    rightsConfirmed: true,
   });
   await audit(actorId, "media.upload_authorised", "media", String(record._id));
   return {
@@ -37,8 +45,8 @@ export async function signUpload(actorId: string, consentReference: string) {
     params: {
       ...params,
       api_key: env.CLOUDINARY_API_KEY,
-      signature: c.utils.api_sign_request(params, env.CLOUDINARY_API_SECRET!)
-    }
+      signature: c.utils.api_sign_request(params, env.CLOUDINARY_API_SECRET!),
+    },
   };
 }
 export async function completeUpload(id: string, actorId: string) {
@@ -46,19 +54,26 @@ export async function completeUpload(id: string, actorId: string) {
   const record = await Media.findOne({
     _id: id,
     ownerId: actorId,
-    status: "pending_upload"
+    status: "pending_upload",
   });
   if (!record) throw new HttpError(404, "Upload not found.");
   const resource = await c.api.resource(record.publicId, {
     type: "authenticated",
-    resource_type: "image"
+    resource_type: "image",
   });
-  if (resource.bytes > 10000000 || !["jpg", "png", "webp"].includes(resource.format)) throw new HttpError(400, "The image does not meet the upload requirements.");
+  if (
+    resource.bytes > 10000000 ||
+    !["jpg", "png", "webp"].includes(resource.format)
+  )
+    throw new HttpError(
+      400,
+      "The image does not meet the upload requirements.",
+    );
   record.status = "pending_review";
   await record.save();
   await audit(actorId, "media.upload_completed", "media", id);
   return {
-    status: record.status
+    status: record.status,
   };
 }
 export async function deleteMedia(id: string, actorId: string) {
@@ -70,14 +85,14 @@ export async function deleteMedia(id: string, actorId: string) {
   await c.uploader.destroy(record.publicId, {
     type: "authenticated",
     resource_type: record.resourceType,
-    invalidate: true
+    invalidate: true,
   });
   record.status = "deleted";
   record.deletedAt = new Date();
   await record.save();
   await audit(actorId, "media.deleted", "media", id);
   return {
-    status: "deleted"
+    status: "deleted",
   };
 }
 export function mediaDelivery(publicId: string) {
@@ -85,13 +100,16 @@ export function mediaDelivery(publicId: string) {
     type: "authenticated",
     sign_url: true,
     secure: true,
-    transformation: [{
-      width: 1400,
-      height: 1000,
-      crop: "limit"
-    }, {
-      quality: "auto",
-      fetch_format: "auto"
-    }]
+    transformation: [
+      {
+        width: 1400,
+        height: 1000,
+        crop: "limit",
+      },
+      {
+        quality: "auto",
+        fetch_format: "auto",
+      },
+    ],
   });
 }
