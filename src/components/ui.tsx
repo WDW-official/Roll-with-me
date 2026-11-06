@@ -44,12 +44,14 @@ export function DemoNotice({
 }
 export function OpportunityCard({
   item,
-  event = false
+  event = false,
+  query = ""
 }: {
   item: Opportunity;
   event?: boolean;
+  query?: string;
 }) {
-  return <article className="opportunity-card"><Link href={`/${event ? "events" : "opportunities"}/${item.slug}`} className="card-art-link" aria-label={`Explore ${item.title}`}><TileArt kind={item.art} label={item.title} /><span className="card-tag mono">{item.category}</span><span className="card-arrow"><ArrowUpRight size={21} /></span></Link><div className="card-meta mono"><span><MapPin size={13} />{item.borough} / {item.zone}</span><span className="demo-tag">{item.demo ? "DEMO" : "VERIFIED"}</span></div><h3><Link href={`/${event ? "events" : "opportunities"}/${item.slug}`}>{item.title}</Link></h3><p>{item.description}</p><div className="card-bottom mono"><span>AGES {item.ageBands.join(" / ")}</span><span>{item.cost === 0 ? item.demo ? "FREE CONCEPT" : "FREE" : `£${item.cost}${item.demo ? " DEMO" : ""}`}</span></div></article>;
+  return <article className="opportunity-card"><Link href={`/${event ? "events" : "opportunities"}/${item.slug}${query ? `?${query}` : ""}`} className="card-art-link" aria-label={`Explore ${item.title}`}><TileArt kind={item.art} label={item.title} /><span className="card-tag mono">{item.category}</span><span className="card-arrow"><ArrowUpRight size={21} /></span></Link><div className="card-meta mono"><span><MapPin size={13} />{item.borough} / {item.zone}</span><span className="demo-tag">{item.demo ? "DEMO" : "VERIFIED"}</span></div><h3><Link href={`/${event ? "events" : "opportunities"}/${item.slug}${query ? `?${query}` : ""}`}>{item.title}</Link></h3><p>{item.description}</p><div className="card-bottom mono"><span>AGES {item.ageBands.join(" / ")}</span><span>{item.cost === 0 ? item.demo ? "FREE CONCEPT" : "FREE" : `£${item.cost}${item.demo ? " DEMO" : ""}`}</span></div></article>;
 }
 export function StoryCard({
   story,

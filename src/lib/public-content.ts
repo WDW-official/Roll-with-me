@@ -23,6 +23,13 @@ export function publicStory(s: Story): Story {
 export function publicOpportunity(o: Opportunity): Opportunity {
   return {
     slug: o.slug,
+    canonicalCategory: o.canonicalCategory,
+    catchments: o.catchments,
+    boroughs: o.boroughs,
+    tags: o.tags,
+    vocation: o.vocation,
+    providerVerified: o.providerVerified === true,
+    riskAssessmentApproved: o.riskAssessmentApproved === true,
     title: o.title,
     category: o.category,
     borough: o.borough,

@@ -82,6 +82,9 @@ export function Motion() {
       mutations.observe(main!, { childList: true, subtree: true });
 
       const onFocus = (event: FocusEvent) => {
+        // Pointer focus must not move a control between pointer-down and click.
+        // Keyboard focus still cancels the reveal so focused content stays visible.
+        if (!(event.target instanceof Element) || !event.target.matches(":focus-visible")) return;
         for (const [element, animation] of animations) {
           if (event.target instanceof Node && element.contains(event.target)) {
             animation.cancel();

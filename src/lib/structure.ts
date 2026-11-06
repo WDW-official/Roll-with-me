@@ -20,6 +20,10 @@ export interface PathField extends TopicPage {
   activityCategory: string;
 }
 export interface ActivityCategory extends TopicPage {
+  label: string;
+  image?: string;
+  imageAlt?: string;
+  driveAssetId?: string;
   listingCategories: string[];
 }
 export const ruleBranches = [{
@@ -82,43 +86,58 @@ const field = (branch: PathBranch, slug: string, title: string, purpose: string,
   activityCategory
 });
 export const pathFields: PathField[] = [field("tech-engineering", "web-development", "WEB DEVELOPMENT.", "Explore how websites are structured, designed and made useful for other people.", "code", ["Page structure", "Readable design", "Simple interactions"], ["your-first-website"], "tech-engineering"), field("tech-engineering", "software-coding", "SOFTWARE & CODING.", "Explore how code turns a small idea into a useful tool.", "code", ["Breaking down a problem", "Giving clear instructions", "Testing an idea"], ["your-first-website"], "tech-engineering"), field("tech-engineering", "robotics-automation", "ROBOTICS & AUTOMATION.", "Explore how sensors, code and moving parts work together.", "robot", ["Sensors", "Control systems", "Outputs"], ["robotics-starts-small"], "tech-engineering"), field("tech-engineering", "electrical-engineering", "ELECTRICAL ENGINEERING.", "Explore the design of electrical systems and the routes into learning about them safely.", "robot", ["Energy and systems", "Design thinking", "Simulation before practical work"], [], "tech-engineering"), field("tech-engineering", "electronics", "ELECTRONICS.", "Explore components, signals and the small systems inside everyday devices.", "robot", ["Components", "Signals", "Supervised low-risk learning"], ["robotics-starts-small"], "tech-engineering"), field("tech-engineering", "mechanical-engineering", "MECHANICAL ENGINEERING.", "Explore how things move, how designs are tested and how physical systems are made.", "maker", ["Forces and motion", "Materials", "Design and testing"], [], "tech-engineering"), field("tech-engineering", "creative-digital-skills", "CREATIVE DIGITAL SKILLS.", "Explore film, design, editing, animation and sound as creative and technical skills.", "film", ["A clear brief", "Consent and rights", "Making and improving"], ["creative-technology"], "creative"), field("sports", "football-futsal", "FOOTBALL & FUTSAL.", "Explore participation, teamwork and routes around the game.", "football", ["Skills practice", "Teamwork", "Appropriate coaching"], ["behind-the-game"], "sport-movement"), field("sports", "boxing-martial-arts", "BOXING & MARTIAL ARTS.", "Explore movement and discipline through appropriately qualified, supervised programmes.", "boxing", ["Qualified supervision", "Age-appropriate participation", "Non-contact introductions"], ["more-than-the-score"], "sport-movement"), field("sports", "athletics", "ATHLETICS.", "Explore running, movement and your own progress with suitable support.", "sprint", ["A suitable starting point", "Personal progress", "Recovery and support"], ["find-your-rhythm"], "sport-movement"), field("sports", "basketball", "BASKETBALL.", "Find out about the game, learning with others and getting involved at your own pace.", "court", ["Skills", "Teamwork", "A supportive environment"], ["more-than-the-score"], "sport-movement"), field("sports", "sport-careers", "COACHING, REFEREEING & SPORT CAREERS.", "Look at the people and skills that help sport happen beyond playing.", "football", ["Different roles", "Recognised training", "Safeguarding responsibilities"], ["behind-the-game"], "sport-movement"), field("vocational-practical", "motor-vehicle-mechanics", "MOTOR VEHICLE MECHANICS.", "Explore vehicle systems and routes into supervised, practical learning.", "maker", ["How systems connect", "Finding a recognised route", "Workshop safety"], [], "trades-careers"), field("vocational-practical", "carpentry-joinery", "CARPENTRY & JOINERY.", "Explore planning, materials and making through safe, supervised learning.", "maker", ["Measurement and planning", "Materials", "Suitable supervision"], ["make-it-with-your-hands"], "trades-careers"), field("vocational-practical", "electrical-installation", "ELECTRICAL INSTALLATION.", "Understand this practical trade and how it differs from electrical engineering.", "maker", ["The role", "Recognised qualifications", "Training and safety"], [], "trades-careers"), field("vocational-practical", "plumbing-heating", "PLUMBING & HEATING.", "Explore the work, training routes and responsibilities in this practical field.", "maker", ["Systems", "Recognised training", "Role-specific safety"], [], "trades-careers"), field("vocational-practical", "construction-trades", "CONSTRUCTION & BUILDING TRADES.", "Explore different practical roles and how to find a supervised introduction.", "maker", ["Different trades", "Working with others", "Safe learning environments"], ["make-it-with-your-hands"], "trades-careers"), field("vocational-practical", "apprenticeships", "APPRENTICESHIPS & ENTRY ROUTES.", "Understand the questions to ask about a real work-and-training opportunity.", "code", ["Eligibility", "Employer and training provider", "Pay, support and conditions"], ["apprenticeships-explained"], "trades-careers")];
+export const activityCategorySlugs = ["sport-movement", "tech-engineering", "creative", "trades-careers", "mentoring-support", "holidays-challenges", "pick-a-vocation"] as const;
+export type ActivityCategorySlug = typeof activityCategorySlugs[number];
 export const activityCategories: ActivityCategory[] = [{
-  slug: "sport-movement",
-  title: "SPORT & MOVEMENT.",
-  purpose: "Find a supervised way to move, play and learn with others.",
-  art: "court" as const,
-  listingCategories: ["Basketball", "Football", "Boxing fitness", "Athletics", "Sport & wellbeing"]
+  slug: "sport-movement", label: "Sport & Movement", title: "SPORT & MOVEMENT.",
+  purpose: "Find a supervised way to move, play and learn with others.", art: "court",
+  listingCategories: ["Basketball", "Football", "Boxing fitness", "Athletics", "Sport & wellbeing"],
+  image: "/images/categories/sport-movement.png", imageAlt: "Sport and movement category: football",
+  driveAssetId: "1j4oaZc3U-l6i-9AoKxnnN3IA9vYejTtT"
 }, {
-  slug: "tech-engineering",
-  title: "TECH & ENGINEERING.",
-  purpose: "Coding, robotics, electronics and supervised making.",
-  art: "robot" as const,
-  listingCategories: ["Coding & tech", "Robotics", "Engineering"]
+  slug: "tech-engineering", label: "Tech & Engineering", title: "TECH & ENGINEERING.",
+  purpose: "Coding, robotics, electronics and supervised making.", art: "robot",
+  listingCategories: ["Coding & tech", "Robotics", "Engineering"],
+  image: "/images/categories/tech-engineering.png", imageAlt: "Tech and engineering category: laptop",
+  driveAssetId: "1ScWinJblHD4F0y41e1CgH_NgeFsgDrWN"
 }, {
-  slug: "creative",
-  title: "CREATIVE ACTIVITIES.",
-  purpose: "Film, editing, photography, animation, music and design.",
-  art: "film" as const,
-  listingCategories: ["Film & music", "Graphic design", "Creative arts"]
+  slug: "creative", label: "Creative", title: "CREATIVE.",
+  purpose: "Film, editing, photography, animation, music and design.", art: "film",
+  listingCategories: ["Film & music", "Graphic design", "Creative arts"],
+  image: "/images/categories/creative.png", imageAlt: "Creative category: recording equipment",
+  driveAssetId: "18JKBB2Yu-YBgo3KZuL1s-uX6C272WRhg"
 }, {
-  slug: "trades-careers",
-  title: "TRADES, CAREERS & ENTERPRISE.",
-  purpose: "Practical tasters, career support and checked routes into learning.",
-  art: "maker" as const,
-  listingCategories: ["Design & trades", "Careers", "Apprenticeships", "Youth enterprise"]
+  slug: "trades-careers", label: "Trades & Careers", title: "TRADES & CAREERS.",
+  purpose: "Career exploration, employability, apprenticeships and routes into work.", art: "maker",
+  listingCategories: ["Design & trades", "Careers", "Apprenticeships", "Youth enterprise"],
+  image: "/images/categories/trades-careers.png", imageAlt: "Approved RWM artwork for Trades and Careers",
+  driveAssetId: "1aIaxzhnCpX8qv5gZJRSHqZGnFIhBdD2c"
 }, {
-  slug: "mentoring-support",
-  title: "MENTORING & SUPPORT.",
-  purpose: "Vetted programmes with appropriate boundaries and supervision.",
-  art: "route" as const,
-  listingCategories: ["Mentoring", "Wellbeing", "Debating & conflict resolution"]
+  slug: "mentoring-support", label: "Mentoring & Support", title: "MENTORING & SUPPORT.",
+  purpose: "Mentoring, confidence and practical guidance with appropriate supervision.", art: "route",
+  listingCategories: ["Mentoring", "Wellbeing", "Debating & conflict resolution"],
+  image: "/images/categories/mentoring-support.png", imageAlt: "Approved RWM artwork for Mentoring and Support",
+  driveAssetId: "1_-py5MiH0ss6qIEWxDRYiaPWg30-tBIf"
 }, {
-  slug: "holidays-challenges",
-  title: "HOLIDAYS, EVENTS & CHALLENGES.",
-  purpose: "Age-appropriate seasonal sessions and supervised challenges.",
-  art: "sprint" as const,
-  listingCategories: []
+  slug: "holidays-challenges", label: "Holidays & Challenges", title: "HOLIDAYS & CHALLENGES.",
+  purpose: "Age-appropriate holiday programmes, trips and supervised challenges.", art: "sprint",
+  listingCategories: ["Holiday programmes", "Challenges"],
+  image: "/images/categories/holidays-challenges.png", imageAlt: "Approved RWM artwork for Holidays and Challenges",
+  driveAssetId: "1K7mNzg9cA80IsWXOVM7eCwQm_HOA9dAW"
+}, {
+  slug: "pick-a-vocation", label: "Pick a Vocation", title: "PICK A VOCATION.",
+  purpose: "Vocational skills: choose a practical discipline and explore local tasters and training.", art: "route",
+  listingCategories: ["Vocational skills"]
 }];
+export const vocationTypes = [
+  { slug: "carpentry", label: "Carpentry & joinery" },
+  { slug: "plumbing", label: "Plumbing & heating" },
+  { slug: "electrical", label: "Electrical installation" },
+  { slug: "vehicle-mechanics", label: "Vehicle mechanics" },
+  { slug: "construction", label: "Construction" },
+  { slug: "catering", label: "Catering" },
+  { slug: "hair-beauty", label: "Hair & beauty" }
+];
 export const storySlots = Array.from({
   length: 10
 }, (_, index) => ({
@@ -130,29 +149,37 @@ export const storySlots = Array.from({
 export const ruleTopicHref = (t: Pick<RuleTopic, "branch" | "slug">) => `/know-the-rules/${t.branch}/${t.slug}`;
 export const pathFieldHref = (f: Pick<PathField, "branch" | "slug">) => `/choose-a-path/${f.branch}/${f.slug}`;
 export const storyThemeSlug = (theme: string) => theme.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-export function activityMatchesCategory(o: {
-  category: string;
-  holiday: boolean;
-}, slug: string) {
-  const category = activityCategories.find(c => c.slug === slug);
-  return !category || (slug === "holidays-challenges" ? o.holiday : category.listingCategories.includes(o.category));
+/** Legacy records are assigned one stable home until staff resave with a canonical category. */
+export function canonicalActivityCategory(o: { canonicalCategory?: string; category: string; slug?: string }) {
+  if (o.canonicalCategory) return activityCategorySlugs.includes(o.canonicalCategory as ActivityCategorySlug) ? o.canonicalCategory : undefined;
+  if (o.slug === "maker-session") return "tech-engineering";
+  return activityCategories.find(c => c.listingCategories.includes(o.category))?.slug;
 }
-export const londonAreas = ["North", "East", "West", "South"] as const;
+export function activityMatchesCategory(o: { canonicalCategory?: string; category: string; slug?: string }, slug: string) {
+  return !slug || canonicalActivityCategory(o) === slug;
+}
+export const londonAreas = ["North", "East", "South", "West"] as const;
 export interface DiscoveryState {
   area: string;
   borough: string;
   age: string;
   category: string;
+  vocation?: string;
+  preview?: string;
+  sort?: string;
 }
 export function discoveryState(input: Record<string, string | string[] | undefined>): DiscoveryState {
   const value = (key: string) => typeof input[key] === "string" ? input[key] as string : "";
-  const area = londonAreas.find(a => a.toLowerCase() === value("area").toLowerCase()) ?? "North";
+  const area = londonAreas.find(a => a.toLowerCase() === value("area").toLowerCase()) ?? "";
   const borough = value("borough").trim();
   return {
     area,
     borough: /^[\p{L} '-]{1,100}$/u.test(borough) ? borough : "",
     age: ["13–15", "16–17", "18–20"].includes(value("age")) ? value("age") : "",
-    category: activityCategories.some(c => c.slug === value("category")) ? value("category") : ""
+    category: activityCategories.some(c => c.slug === value("category")) ? value("category") : "",
+    ...(vocationTypes.some(v => v.slug === value("vocation")) ? { vocation: value("vocation") } : {}),
+    ...(value("preview") === "demo" ? { preview: "demo" } : {}),
+    ...(["title", "date"].includes(value("sort")) ? { sort: value("sort") } : {})
   };
 }
 export function discoveryQuery(state: DiscoveryState) {
@@ -161,7 +188,7 @@ export function discoveryQuery(state: DiscoveryState) {
   return p.toString();
 }
 export function discoveryHref(state: DiscoveryState) {
-  return `/roll-with-me?${discoveryQuery(state)}`;
+  return `${state.category ? `/roll-with-me/categories/${state.category}` : "/roll-with-me"}?${discoveryQuery(state)}`;
 }
 export type SupportTopic = "general" | "rules" | "pathways" | "activities" | "wellbeing" | "story" | "correction" | "opportunities" | "safety";
 export const supportTopics = [{

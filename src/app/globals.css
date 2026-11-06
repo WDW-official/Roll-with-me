@@ -3013,7 +3013,7 @@ textarea {
 }
 .pillar-launcher-card {
   position:relative;
-  padding:15px 13px 17px;
+  padding:52px 29px 11px 11px;
   border:1px solid var(--line);
   background:var(--surface);
   transition:transform .2s,border-color .2s
@@ -3574,7 +3574,7 @@ body:has(.social-hub) .breadcrumbs {
   }
   .pillar-launcher-card {
     padding:15px 14px 16px;
-    min-height:142px
+    min-height:164px
   }
   .pillar-launcher-card>div {
     margin-bottom:19px
@@ -4559,3 +4559,125 @@ body:has(.social-hub) .page-support {
   0%,100% { transform:scale(1); }
   45% { transform:scale(1.22); }
 }
+
+/* Location-first content uses the original swipe-feed layout. */
+.hub-local .swipe-art > img { width:100%; height:100%; object-fit:cover; }
+.vocation-placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%; background:var(--surface); color:var(--muted); gap:12px; letter-spacing:.08em; }
+.vocation-placeholder > span:first-child { font-family:var(--font-display); font-size:110px; line-height:1; opacity:.4; }
+.local-feed-options { display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:7px 12px; border-top:1px solid var(--line); }
+.local-feed-options > a { font-size:9px; flex:1; }
+.local-feed-options > select { width:auto; max-width:160px; min-height:32px; padding:5px 22px 5px 6px; font-size:9px; }
+.local-feed-demo { display:flex; align-items:center; gap:8px; padding:7px 12px; font-size:9px; }
+.local-feed-demo > input { width:16px; min-height:16px; height:16px; flex-shrink:0; }
+.local-feed-notice { padding:8px 12px; font-size:10px; }
+.local-empty-art { height:125px; margin-bottom:20px; }
+.local-empty-art img { height:100%; width:auto; margin:auto; object-fit:contain; }
+@media (max-width:700px) {
+  .hub-local .local-empty { flex:1; min-height:0; overflow-y:auto; padding:20px; }
+  .local-empty-art { height:85px; margin-bottom:14px; }
+  .local-feed-options { padding:4px 10px; gap:5px; }
+  .local-feed-options > a { font-size:8px; }
+  .local-feed-options > select { font-size:8px; max-width:130px; }
+  .local-feed-demo { font-size:8px; padding:5px 10px; }
+}
+
+/* The four-section introduction opens with London fading into the copy. */
+.pillar-launcher-with-hero {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0px;
+  padding-top: 24px;
+}
+.pillar-launcher-hero {
+  position: relative;
+  min-height: 430px;
+  isolation: isolate;
+  overflow: hidden;
+}
+.pillar-launcher-hero .pillar-launcher-intro {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 50%;
+  padding: 42px 0 64px;
+}
+.pillar-launcher-hero .pillar-launcher-intro > .mono {
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+.pillar-launcher-hero .pillar-launcher-intro > h2 {
+  max-width: 490px;
+  margin-top: 22px;
+  font-size: clamp(52px, 6.4vw, 86px);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+.pillar-launcher-hero .pillar-launcher-intro > p {
+  margin-top: 22px;
+  font-size: 14px;
+  max-width: 330px;
+  line-height: 1.8;
+}
+.pillar-launcher-image {
+  position: absolute;
+  inset: 0 0 0 30%;
+  z-index: -1;
+  mask-image: linear-gradient(to right, transparent 0%, #000 38%);
+}
+.pillar-launcher-image img {
+  object-fit: cover;
+  object-position: center;
+}
+.pillar-launcher-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--bg), transparent 22%);
+}
+@media (max-width: 900px) {
+  .pillar-launcher-hero { min-height: 370px; }
+  .pillar-launcher-hero .pillar-launcher-intro { width: 54%; padding-top: 32px; }
+  .pillar-launcher-hero .pillar-launcher-intro > h2 { font-size: 58px; }
+  .pillar-launcher-hero .pillar-launcher-intro > p { font-size: 12px; max-width: 250px; }
+}
+@media (max-width: 700px) {
+  .pillar-launcher-with-hero { padding-top: 12px; gap: 14px; }
+  .pillar-launcher-hero { min-height: 440px; }
+  .pillar-launcher-hero .pillar-launcher-intro { width: 100%; padding: 16px 0 0; }
+  .pillar-launcher-hero .pillar-launcher-intro > .mono { font-size: 8px; }
+  .pillar-launcher-hero .pillar-launcher-intro > h2 { font-size: clamp(44px, 11vw, 64px); max-width: 360px; margin-top: 15px; }
+  .pillar-launcher-hero .pillar-launcher-intro > p { font-size: 12px; max-width: none; margin-top: 13px; }
+  .pillar-launcher-image { inset: 155px 0 0; mask-image: linear-gradient(to bottom, transparent, #000 34%); }
+  .pillar-launcher-image::after { background: linear-gradient(to top, var(--bg), transparent 20%); }
+}
+
+/* Approved desktop/mobile artwork sits behind each section's live label. */
+.pillar-launcher-card.pillar-image-card {
+  isolation: isolate;
+  overflow: hidden;
+  background: #171817;
+  color: #fff;
+  border-color: var(--line);
+}
+.pillar-card-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+.pillar-card-image img { object-fit: cover; object-position: center; }
+.pillar-image-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(0,0,0,.66), rgba(0,0,0,.18) 65%, rgba(0,0,0,.06)), linear-gradient(0deg, rgba(0,0,0,.5), transparent 70%);
+}
+.pillar-launcher-card.pillar-image-card > div { justify-content: flex-end; }
+.pillar-launcher-card.pillar-image-card > div > .mono,
+.pillar-launcher-card.pillar-image-card > p,
+.pillar-launcher-card.pillar-image-card > .pillar-launcher-arrow { color: #fff; }
+.pillar-image-card > h3,
+.pillar-image-card > p { text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+.pillar-launcher-card.pillar-image-card:hover,
+.pillar-launcher-card.pillar-image-card:focus-visible { border-color: var(--orange); }

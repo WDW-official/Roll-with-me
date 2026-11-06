@@ -12,10 +12,10 @@ The primary experience is now built around **four mobile sections**:
 | --- | --- | --- |
 | **Know the Rules** | `/know-the-rules` | The Law / The Terrain, 17 topic pages, Facts, Context & Myths; existing matched legal drafts retain review warnings |
 | **Choose a Path** | `/choose-a-path` | Tech & Engineering / Sports / Vocational & Practical; 18 field pages and nine original short introduction articles |
-| **Roll With Me** | `/roll-with-me` | Persistent North / East / West / South London selection, borough and age filters, swipeable local activity cards |
+| **Roll With Me** | `/roll-with-me` | Choose North / East / South / West London, then one of seven shared categories; local listings with borough and age filters |
 | **The Real** | `/the-real` | Ten reserved story spaces, themes and three labelled fictional examples; genuine stories await material/review |
 
-Phones have a persistent four-section bottom bar. Each hub uses deliberate vertical scroll snapping and also has previous/next buttons and keyboard controls. There is no autoplay, endless feed or profiling-based recommendation system. Cards saved inside a feed exist in component memory for that visit only. Existing editorial list/detail routes remain available as alternatives. Mobile feed layouts account for browser viewport height and safe-area insets.
+Phones have a persistent four-section bottom bar. The rules, paths and story hubs use deliberate vertical scroll snapping and also have previous/next buttons and keyboard controls. Roll With Me retains the same swipe-card layout, showing seven shared category cards before local activity cards. There is no autoplay, endless feed or profiling-based recommendation system. Cards saved inside a feed exist in component memory for that visit only. Existing editorial list/detail routes remain available as alternatives. Mobile feed layouts account for browser viewport height and safe-area insets.
 
 ## Run locally
 
@@ -184,3 +184,19 @@ Security headers include CSP, disabled geolocation/camera/microphone, no framing
 Unit tests cover legal/opportunity gates, guardian age rules, role boundaries, safe demo data, schema completeness, survey branches/answer validation and CSV injection. Playwright covers theme persistence, filtering, preview write rejection, hostile-origin rejection, restricted APIs, legal warnings, the demo bag and responsive overflow on desktop/mobile.
 
 Live Atlas transaction races, authenticated role integration, actual Cloudinary signing/deletion, email/SMS, payment checkout and professional safeguarding/legal validity require configured external environments and have not been established by unit tests. This is intentionally documented rather than presented as production certification.
+
+## Location-first Roll With Me
+
+The four catchments share one ordered category directory in `src/lib/structure.ts`. Both `/roll-with-me?area=North` and the legacy `/roll-with-me/categories?area=North` render it. Category pages live at `/roll-with-me/categories/<slug>?area=North`; legacy area and borough routes redirect while retaining valid filters. Missing or invalid catchments prompt an explicit choice.
+
+Each opportunity has one `canonicalCategory`. New staff submissions require it; old records resolve through a conservative compatibility mapping until resaved. The eight demo records keep their regions, with `maker-session` assigned to Tech & Engineering. Holiday flags and other tags do not create extra canonical homes. Optional `catchments`, `boroughs`, `tags` and `vocation` fields support provider data as it is confirmed.
+
+`src/lib/local-discovery.ts` centralises locality, age, category, specialism and publication filtering. Demo previews require both demo mode and an explicit `preview=demo` opt-in. Provider verification, current checks, safeguarding/risk assessment approval and age eligibility gate registration; the existing server-side guardian consent workflow remains in place.
+
+The six approved images are stored under `public/images/categories/`, with original Drive asset IDs in the category catalogue. Pick a Vocation uses a neutral placeholder pending approved artwork. Live borough choices come from the staff-maintained Area collection. The pre-existing demo borough map is a preview fixture, **not confirmation of RWM's final catchment boundaries**; RWM must confirm the production map and verify real providers before launch.
+
+QA covers all 28 region/category combinations, legacy links, filter persistence, age eligibility, demo isolation and publication gates. To avoid another project already running on port 3000, Playwright accepts `PLAYWRIGHT_BASE_URL` and `PLAYWRIGHT_SERVER_COMMAND`; `PLAYWRIGHT_CHANNEL=chrome` selects an installed Chrome browser. Example after a successful build:
+
+```sh
+PLAYWRIGHT_CHANNEL=chrome PLAYWRIGHT_BASE_URL=http://127.0.0.1:3100 PLAYWRIGHT_SERVER_COMMAND='npm run start -- --port 3100 --hostname 127.0.0.1' npm run test:e2e -- tests/e2e/local-activities.spec.ts tests/e2e/mobile-feeds.spec.ts
+```

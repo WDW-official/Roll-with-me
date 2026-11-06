@@ -36,25 +36,22 @@ describe("manual discovery and contextual help", () => {
       category: "malicious",
       borough: "<script>"
     })).toEqual({
-      area: "North",
+      area: "",
       borough: "",
       age: "",
       category: ""
     });
   });
-  it("uses category metadata and holiday status rather than invented availability", () => {
+  it("assigns a stable canonical category rather than using holiday tags as another home", () => {
     expect(activityMatchesCategory({
-      category: "Basketball",
-      holiday: false
+      category: "Basketball"
     }, "sport-movement")).toBe(true);
     expect(activityMatchesCategory({
-      category: "Basketball",
-      holiday: false
+      category: "Basketball"
     }, "creative")).toBe(false);
     expect(activityMatchesCategory({
-      category: "Basketball",
-      holiday: true
-    }, "holidays-challenges")).toBe(true);
+      category: "Basketball"
+    }, "holidays-challenges")).toBe(false);
   });
   it("does not attach private route IDs or browsing history to support", () => {
     expect(supportHref("/admin/safeguarding/private-case", true)).toBe("/ask-rwm?topic=general&context=general&requester=parent_carer");

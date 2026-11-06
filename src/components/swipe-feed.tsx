@@ -1,13 +1,18 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, type ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUp, ArrowUpRight, Bookmark, BookOpen, Compass, MapPin, Play, ShieldCheck, HeartHandshake } from "lucide-react";
 import { TileArt } from "./art";
 import type { Guide, Opportunity, Story } from "@/lib/types";
 import { ruleBranches, ruleTopics, ruleTopicHref, pathBranches, pathFields, pathFieldHref, activityCategories, activityMatchesCategory, discoveryState, discoveryHref, discoveryQuery, supportHref, type DiscoveryState } from "@/lib/structure";
 export type FeedKind = "rules" | "paths" | "local" | "stories";
-interface FeedCard {
+export interface FeedCard {
+  image?: string;
+  imageAlt?: string;
+  neutralArt?: boolean;
+  ctaLabel?: string;
   id: string;
   title: string;
   kicker: string;
@@ -19,6 +24,14 @@ interface FeedCard {
   note?: string;
 }
 interface FeedProps {
+  localView?: {
+    cards: FeedCard[];
+    controls: ReactNode;
+    tabs: ReactNode;
+    empty: ReactNode;
+    feedLabel: string;
+    directoryHref: string;
+  };
   kind: FeedKind;
   opportunities?: Opportunity[];
   stories?: Story[];
@@ -38,14 +51,15 @@ export function SwipeFeed({
   initialDiscovery,
   areaBoroughs = {},
   title,
-  description
+  description,
+  localView
 }: FeedProps) {
   const initial = initialDiscovery ?? discoveryState({});
   const [filter, setFilter] = useState(initialFilter ?? (kind === "local" ? initial.area : kind === "stories" ? "all" : "explore"));
   const [borough, setBorough] = useState(initial.borough);
   const [age, setAge] = useState(initial.age);
   const [category, setCategory] = useState(initial.category);
-  const [index, setIndex] = useState(0);
+  const [position, setPosition] = useState({ key: "", index: 0 });
   const [saved, setSaved] = useState<string[]>([]);
   const feed = useRef<HTMLDivElement>(null);
   const headings = {
@@ -201,6 +215,10 @@ export function SwipeFeed({
       note: s.demo ? "ILLUSTRATIVE STORY / NO REAL PERSON DEPICTED" : s.contentNote
     }))];
   }
+  if (localView) cards = localView.cards;
+  const cardKey = cards.map(card => card.id).join("|");
+  const index = position.key === cardKey ? position.index : 0;
+  const setIndex = (next: number) => setPosition({ key: cardKey, index: next });
   function rewind() {
     setIndex(0);
     if (feed.current) feed.current.scrollTop = 0;
@@ -237,7 +255,7 @@ export function SwipeFeed({
     href: "/choose-a-path/directory"
   }] : kind === "local" ? [{
     title: "Activity categories",
-    href: "/roll-with-me/categories"
+    href: localView?.directoryHref ?? "/roll-with-me/categories"
   }] : [{
     title: "Themes",
     href: "/the-real/themes"
@@ -247,8 +265,8 @@ export function SwipeFeed({
   }];
   const boroughChoices = areaBoroughs[filter] ?? [...new Set(opportunities.filter(o => o.zone === filter).map(o => o.borough))];
   return <section className={`social-hub hub-${kind}`} aria-label={title ?? heading.title}><div className="hub-intro"><div className="hub-heading"><heading.icon size={16} /><span className="mono">FOUR WAYS IN. YOUR OWN NEXT STEP.</span></div><h1>{title ?? heading.title}</h1><p>{description ?? heading.description}</p><div className="hub-desktop-note"><span className="mono">MADE TO EXPLORE AT YOUR PACE.</span><p>Swipe up or use the arrows. Open a card to go deeper.</p>{extras.map(l => <Link className="text-link" href={l.href} key={l.href}>{l.title}<ArrowUpRight size={14} /></Link>)}</div></div>
-  <div className="hub-player"><div className="hub-tabs" role="group" aria-label={kind === "local" ? "Choose your London area" : kind === "paths" ? "Choose a learning path" : "Choose a topic"}>{options.map(o => <button key={o.value} onClick={() => choose(o.value)} className={filter === o.value ? "selected" : ""} aria-pressed={filter === o.value}>{o.label}{kind === "local" && <span className="area-tab-suffix"> London</span>}</button>)}</div>
-  {kind === "local" && <div className="hub-local-filters"><label><MapPin size={12} /><select aria-label="Choose your borough" value={borough} onChange={e => {
+  <div className="hub-player">{localView ? localView.tabs : <div className="hub-tabs" role="group" aria-label={kind === "local" ? "Choose your London area" : kind === "paths" ? "Choose a learning path" : "Choose a topic"}>{options.map(o => <button key={o.value} onClick={() => choose(o.value)} className={filter === o.value ? "selected" : ""} aria-pressed={filter === o.value}>{o.label}{kind === "local" && <span className="area-tab-suffix"> London</span>}</button>)}</div>}
+  {kind === "local" && (localView ? localView.controls : <div className="hub-local-filters"><label><MapPin size={12} /><select aria-label="Choose your borough" value={borough} onChange={e => {
             const v = e.target.value;
             setBorough(v);
             rewind();
@@ -278,8 +296,8 @@ export function SwipeFeed({
             age,
             category: v
           });
-        }}><option value="">All activities</option>{activityCategories.map(c => <option value={c.slug} key={c.slug}>{c.title.replace(/\.$/, "")}</option>)}</select></div>}
-  {cards.length ? <><div className="swipe-feed" ref={feed} tabIndex={0} aria-label="Swipe up or down to explore cards" onKeyDown={e => {
+        }}><option value="">All activities</option>{activityCategories.map(c => <option value={c.slug} key={c.slug}>{c.title.replace(/\.$/, "")}</option>)}</select></div>)}
+  {cards.length ? <><div key={cardKey} className="swipe-feed" ref={feed} tabIndex={0} role={localView ? "region" : undefined} aria-label={localView?.feedLabel ?? "Swipe up or down to explore cards"} onKeyDown={e => {
           if (e.target !== e.currentTarget) return;
           if (e.key === "ArrowDown" || e.key === "PageDown") {
             e.preventDefault();
@@ -291,7 +309,7 @@ export function SwipeFeed({
           }
         }} onScroll={() => {
           if (feed.current && feed.current.clientHeight) setIndex(Math.min(cards.length - 1, Math.round(feed.current.scrollTop / feed.current.clientHeight)));
-        }}>{cards.map((card, i) => <article className="swipe-card" key={card.id} aria-label={`${i + 1} of ${cards.length}: ${card.title}`}><div className="swipe-art" data-image-slot={kind === "rules" ? filter === "the-terrain" || card.id === "the-terrain" ? "terrain-banner" : "rules-law-banner" : kind === "paths" ? filter === "sports" || card.id === "sports" ? "path-sports-banner" : filter === "vocational-practical" || card.id === "vocational-practical" ? "path-vocation-banner" : "path-tech-banner" : kind === "local" ? "provider-activity-image" : "story-poster-st01-st10"}><TileArt kind={card.art} label={card.kicker} /></div><div className="swipe-card-overlay" /><div className="swipe-top"><span className="swipe-category mono">{card.kicker}</span><span className="mono">{String(i + 1).padStart(2, "0")} / {String(cards.length).padStart(2, "0")}</span></div><div className="swipe-card-body"><span className="swipe-meta mono">{card.meta}</span><h2>{card.title}</h2><p>{card.description}</p><div className="swipe-actions"><Link className="button" href={card.href}>{card.cta}<ArrowUpRight size={17} /></Link><button className={`feed-save ${saved.includes(card.id) ? "is-saved" : ""}`} aria-label={saved.includes(card.id) ? "Remove from this session’s saved cards" : "Save card for this session"} aria-pressed={saved.includes(card.id)} onClick={() => setSaved(s => s.includes(card.id) ? s.filter(id => id !== card.id) : [...s, card.id])}><Bookmark size={20} fill={saved.includes(card.id) ? "currentColor" : "none"} /></button></div>{card.note && <p className="swipe-notice mono"><ShieldCheck size={11} />{card.note}</p>}</div></article>)}</div><div className="feed-controls"><span className="mono" aria-live="polite">{index + 1} / {cards.length}<span className="feed-controls-hint"> — SWIPE TO EXPLORE</span></span><div className="feed-progress" aria-hidden="true">{cards.map((c, i) => <span key={c.id} className={i === index ? "active" : ""} />)}</div><div><button onClick={() => move(-1)} disabled={index === 0} aria-label="Previous card"><ArrowUp size={16} /></button><button onClick={() => move(1)} disabled={index === cards.length - 1} aria-label="Next card"><ArrowDown size={16} /></button></div></div></> : <div className="feed-empty"><h2>ANOTHER MOVE<br />IS ON ITS WAY.</h2><p>No published activities match this selection. Try another area or clear your filters.</p><button className="button" onClick={() => {
+        }}>{cards.map((card, i) => <article className="swipe-card" key={card.id} aria-label={`${i + 1} of ${cards.length}: ${card.title}`}><div className="swipe-art" data-image-slot={kind === "rules" ? filter === "the-terrain" || card.id === "the-terrain" ? "terrain-banner" : "rules-law-banner" : kind === "paths" ? filter === "sports" || card.id === "sports" ? "path-sports-banner" : filter === "vocational-practical" || card.id === "vocational-practical" ? "path-vocation-banner" : "path-tech-banner" : kind === "local" ? "provider-activity-image" : "story-poster-st01-st10"}>{card.image ? <Image src={card.image} alt={card.imageAlt ?? card.kicker} width={1024} height={1024} sizes="(max-width: 700px) 100vw, 460px" /> : card.neutralArt ? <div className="vocation-placeholder" role="img" aria-label="Vocational skills — category artwork coming soon"><span aria-hidden="true">07</span><span>VOCATIONAL SKILLS</span></div> : <TileArt kind={card.art} label={card.kicker} />}</div><div className="swipe-card-overlay" /><div className="swipe-top"><span className="swipe-category mono">{card.kicker}</span><span className="mono">{String(i + 1).padStart(2, "0")} / {String(cards.length).padStart(2, "0")}</span></div><div className="swipe-card-body"><span className="swipe-meta mono">{card.meta}</span><h2>{card.title}</h2><p>{card.description}</p><div className="swipe-actions"><Link className="button" href={card.href} aria-label={card.ctaLabel}>{card.cta}<ArrowUpRight size={17} /></Link><button className={`feed-save ${saved.includes(card.id) ? "is-saved" : ""}`} aria-label={saved.includes(card.id) ? "Remove from this session’s saved cards" : "Save card for this session"} aria-pressed={saved.includes(card.id)} onClick={() => setSaved(s => s.includes(card.id) ? s.filter(id => id !== card.id) : [...s, card.id])}><Bookmark size={20} fill={saved.includes(card.id) ? "currentColor" : "none"} /></button></div>{card.note && <p className="swipe-notice mono"><ShieldCheck size={11} />{card.note}</p>}</div></article>)}</div><div className="feed-controls"><span className="mono" aria-live="polite">{index + 1} / {cards.length}<span className="feed-controls-hint"> — SWIPE TO EXPLORE</span></span><div className="feed-progress" aria-hidden="true">{cards.map((c, i) => <span key={c.id} className={i === index ? "active" : ""} />)}</div><div><button onClick={() => move(-1)} disabled={index === 0} aria-label="Previous card"><ArrowUp size={16} /></button><button onClick={() => move(1)} disabled={index === cards.length - 1} aria-label="Next card"><ArrowDown size={16} /></button></div></div></> : localView ? localView.empty : <div className="feed-empty"><h2>ANOTHER MOVE<br />IS ON ITS WAY.</h2><p>No published activities match this selection. Try another area or clear your filters.</p><button className="button" onClick={() => {
           setBorough("");
           setAge("");
           setCategory("");

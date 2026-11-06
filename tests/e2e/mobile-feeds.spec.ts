@@ -62,11 +62,12 @@ test("area, age and category choices survive opening a local listing", async ({
 }) => {
   await page.goto("/roll-with-me");
   await page.getByRole("button", {
-    name: /East/
+    name: /^East(?: London)?$/
   }).click();
   await page.getByLabel("Choose your borough").selectOption("Hackney");
   await page.getByLabel("Choose age band").selectOption("16–17");
-  await page.getByLabel("Choose activity category").selectOption("sport-movement");
+  await page.getByRole("link", { name: "Explore Sport & Movement", exact: true }).click();
+  await page.getByRole("checkbox", { name: /Show demo previews/ }).check();
   await expect(page).toHaveURL(/category=sport-movement/);
   await page.getByRole("link", {
     name: "See the session",
@@ -114,5 +115,5 @@ test("parent reply preferences remain explicit and the preview does not submit",
   await page.getByRole("button", {
     name: "Try preview submission"
   }).click();
-  await expect(page.getByRole("alert")).toContainText("Nothing has been submitted or saved");
+  await expect(page.getByRole("alert").filter({ hasText: "Nothing has been submitted or saved" })).toBeVisible();
 });

@@ -1,22 +1,222 @@
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, MoveUpRight, MapPin, Play, ShieldCheck, MessageCircle } from "lucide-react";
+import {
+  ArrowUpRight,
+  ArrowRight,
+  MoveUpRight,
+  MapPin,
+  Play,
+  ShieldCheck,
+  MessageCircle,
+} from "lucide-react";
 import { CourtArt } from "@/components/art";
-import { ButtonLink, SectionTitle, OpportunityCard, StoryCard, Eyebrow } from "@/components/ui";
+import {
+  ButtonLink,
+  SectionTitle,
+  OpportunityCard,
+  StoryCard,
+  Eyebrow,
+} from "@/components/ui";
 import { Crown, Pawn, RouteMotif, Die } from "@/components/icons";
 import { getOpportunities, getStories } from "@/lib/content";
 import { zones } from "@/lib/data";
 import { isDemo } from "@/lib/env";
 import { PillarLauncher } from "@/components/pillar-launcher";
 export default async function Home() {
-  const [opportunities, stories] = await Promise.all([getOpportunities(), getStories()]);
-  return <><PillarLauncher />
-    <section className="home-hero page-width"><div className="hero-copy"><Eyebrow>THIS IS YOUR STARTING POINT.</Eyebrow><h1>YOUR CITY.<br />YOUR <span className="move-word">MOVE<MoveUpRight aria-hidden="true" />.</span></h1><p className="hero-motto mono">MOVE TOGETHER. BECOME MORE.</p><p className="hero-description">Real stories. New skills. People in your corner.<br className="desktop-break" /> A world of possibilities, right on your doorstep.</p><div className="hero-buttons"><ButtonLink href="/roll-with-me">Find your next move</ButtonLink><Link className="watch-link" href="/the-real"><span><Play size={12} fill="currentColor" /></span>Meet the stories</Link></div><div className="hero-bottom"><div className="avatar-stack"><span><Pawn /></span><span><Crown /></span><span><Die /></span></div><p><strong>Different starts. Shared possibilities.</strong><br />For Londoners aged 13–20. Built with you.</p><ArrowUpRight size={24} /></div></div><div className="hero-visual"><CourtArt hero /><span className="hero-side-note mono">LONDON IS OUR BOARD. THE FUTURE IS OPEN.</span></div></section>
-    <div className="campaign-strip mono"><span>DIFFERENT START.</span><span className="strip-symbol">✳</span><span>SAME GAME.</span><span className="strip-symbol">✳</span><span>BETTER ENDING.</span><ArrowUpRight size={24} /><span className="strip-extra">LET’S MAKE MOVES.</span></div>
-    <section className="area-finder page-width"><div><span className="mono section-number">01 / YOUR LOCAL STARTING POINT</span><h2>BIG POSSIBILITIES.<br />CLOSE TO HOME.</h2></div><div className="area-finder-right"><p>Find something that’s you. Sport, music, code, creativity.<br />Choose your corner of the city and see what’s possible.</p><div className="zone-links">{zones.map(z => <Link href={`/your-area/${z.toLowerCase()}`} key={z}><MapPin size={16} />{z} London<ArrowUpRight size={17} /></Link>)}</div><p className="privacy-caption mono"><ShieldCheck size={12} /> YOUR AREA, YOUR CHOICE. NO LIVE LOCATION TRACKING.</p></div></section>
-    <section className="section-pad page-width"><SectionTitle number="02" title="FIND YOUR THING." link="Explore opportunities" href="/opportunities" /><p className="section-description">A new skill. A new team. A good reason to get out there.</p>{isDemo && <p className="preview-caption mono"><span className="live-dot" /> EXPLORER PREVIEW — DEMO ACTIVITIES. NOT YET VERIFIED OR BOOKABLE.</p>}<div className="cards-grid">{opportunities.slice(0, 3).map(o => <OpportunityCard key={o.slug} item={o} />)}</div></section>
-    <section className="stories-section"><div className="page-width section-pad"><SectionTitle number="03" title="THE REAL. THE POSSIBLE." link="All the stories" href="/the-real" /><p className="section-description">Different perspectives. Honest conversations. Another way forward.</p><div className="stories-grid">{stories.slice(0, 2).map(s => <StoryCard key={s.slug} story={s} />)}</div></div></section>
-    <section className="rights-callout page-width"><div className="rights-graphic"><span className="mono">KNOW THE GAME / 04</span><Crown /><span className="mono">INFORMATION IS A POWER MOVE.</span></div><div><Eyebrow>YOUR RIGHTS. IN PLAIN ENGLISH.</Eyebrow><h2>KNOW MORE.<br />MOVE SMARTER.</h2><p>No complicated language. No judgement. Find trusted sources, understand your rights and know where to turn.</p><ButtonLink href="/know-the-rules">Know the rules</ButtonLink><p className="mono legal-caption">ENGLAND & WALES / LEGAL GUIDES AWAIT PROFESSIONAL REVIEW</p></div></section>
-    <section className="circle-callout page-width"><div><MessageCircle size={24} /><span className="mono">THERE’S A PLACE FOR YOUR VOICE.</span></div><h2>YOU DON’T HAVE TO<br />FIGURE IT OUT ALONE.</h2><div><p>A question on your mind? An idea for your area?<br />Let’s find a way forward, together.</p><ButtonLink href="/ask-rwm" secondary>Ask RWM</ButtonLink><Link href="/help" className="text-link">Need help now? <ArrowRight size={16} /></Link></div><RouteMotif className="circle-route" /></section>
-    <div className="closing-line page-width"><Pawn /><span>EVERY MOVE IS A NEW POSSIBILITY.</span><ArrowUpRight /></div>
-  </>;
+  const [opportunities, stories] = await Promise.all([
+    getOpportunities(),
+    getStories(),
+  ]);
+  return (
+    <>
+      <PillarLauncher />
+      <section className="home-hero page-width">
+        <div className="hero-copy">
+          <Eyebrow>THIS IS YOUR STARTING POINT.</Eyebrow>
+          <h1>
+            YOUR CITY.
+            <br />
+            YOUR{" "}
+            <span className="move-word">
+              MOVE
+              <MoveUpRight aria-hidden="true" />.
+            </span>
+          </h1>
+          <p className="hero-motto mono">MOVE TOGETHER. BECOME MORE.</p>
+          <p className="hero-description">
+            Real stories. New skills. People in your corner.
+            <br className="desktop-break" /> A world of possibilities, right on
+            your doorstep.
+          </p>
+          <div className="hero-buttons">
+            <ButtonLink href="/roll-with-me">Find your next move</ButtonLink>
+            <Link className="watch-link" href="/the-real">
+              <span>
+                <Play size={12} fill="currentColor" />
+              </span>
+              Meet the stories
+            </Link>
+          </div>
+          <div className="hero-bottom">
+            <div className="avatar-stack">
+              <span>
+                <Pawn />
+              </span>
+              <span>
+                <Crown />
+              </span>
+              <span>
+                <Die />
+              </span>
+            </div>
+            <p>
+              <strong>Different starts. Shared possibilities.</strong>
+              <br />
+              For Londoners aged 13–20. Built with you.
+            </p>
+            <ArrowUpRight size={24} />
+          </div>
+        </div>
+        <div className="hero-visual">
+          <CourtArt hero />
+          <span className="hero-side-note mono">
+            LONDON IS OUR BOARD. THE FUTURE IS OPEN.
+          </span>
+        </div>
+      </section>
+      <div className="campaign-strip mono">
+        <span>DIFFERENT START.</span>
+        <span className="strip-symbol">✳</span>
+        <span>SAME GAME.</span>
+        <span className="strip-symbol">✳</span>
+        <span>BETTER ENDING.</span>
+        <ArrowUpRight size={24} />
+        <span className="strip-extra">LET’S MAKE MOVES.</span>
+      </div>
+      <section className="area-finder page-width">
+        <div>
+          <span className="mono section-number">
+            01 / YOUR LOCAL STARTING POINT
+          </span>
+          <h2>
+            BIG POSSIBILITIES.
+            <br />
+            CLOSE TO HOME.
+          </h2>
+        </div>
+        <div className="area-finder-right">
+          <p>
+            Find something that’s you. Sport, music, code, creativity.
+            <br />
+            Choose your corner of the city and see what’s possible.
+          </p>
+          <div className="zone-links">
+            {zones.map((z) => (
+              <Link href={`/your-area/${z.toLowerCase()}`} key={z}>
+                <MapPin size={16} />
+                {z} London
+                <ArrowUpRight size={17} />
+              </Link>
+            ))}
+          </div>
+          <p className="privacy-caption mono">
+            <ShieldCheck size={12} /> YOUR AREA, YOUR CHOICE. NO LIVE LOCATION
+            TRACKING.
+          </p>
+        </div>
+      </section>
+      <section className="section-pad page-width">
+        <SectionTitle
+          number="02"
+          title="FIND YOUR THING."
+          link="Explore opportunities"
+          href="/opportunities"
+        />
+        <p className="section-description">
+          A new skill. A new team. A good reason to get out there.
+        </p>
+        {isDemo && (
+          <p className="preview-caption mono">
+            <span className="live-dot" /> EXPLORER PREVIEW — DEMO ACTIVITIES.
+            NOT YET VERIFIED OR BOOKABLE.
+          </p>
+        )}
+        <div className="cards-grid">
+          {opportunities.slice(0, 3).map((o) => (
+            <OpportunityCard key={o.slug} item={o} />
+          ))}
+        </div>
+      </section>
+      <section className="stories-section">
+        <div className="page-width section-pad">
+          <SectionTitle
+            number="03"
+            title="THE REAL. THE POSSIBLE."
+            link="All the stories"
+            href="/the-real"
+          />
+          <p className="section-description">
+            Different perspectives. Honest conversations. Another way forward.
+          </p>
+          <div className="stories-grid">
+            {stories.slice(0, 2).map((s) => (
+              <StoryCard key={s.slug} story={s} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="rights-callout page-width">
+        <div className="rights-graphic">
+          <span className="mono">KNOW THE GAME / 04</span>
+          <Crown />
+          <span className="mono">INFORMATION IS A POWER MOVE.</span>
+        </div>
+        <div>
+          <Eyebrow>YOUR RIGHTS. IN PLAIN ENGLISH.</Eyebrow>
+          <h2>
+            KNOW MORE.
+            <br />
+            MOVE SMARTER.
+          </h2>
+          <p>
+            No complicated language. No judgement. Find trusted sources,
+            understand your rights and know where to turn.
+          </p>
+          <ButtonLink href="/know-the-rules">Know the rules</ButtonLink>
+          <p className="mono legal-caption">
+            ENGLAND & WALES / LEGAL GUIDES AWAIT PROFESSIONAL REVIEW
+          </p>
+        </div>
+      </section>
+      <section className="circle-callout page-width">
+        <div>
+          <MessageCircle size={24} />
+          <span className="mono">THERE’S A PLACE FOR YOUR VOICE.</span>
+        </div>
+        <h2>
+          YOU DON’T HAVE TO
+          <br />
+          FIGURE IT OUT ALONE.
+        </h2>
+        <div>
+          <p>
+            A question on your mind? An idea for your area?
+            <br />
+            Let’s find a way forward, together.
+          </p>
+          <ButtonLink href="/ask-rwm" secondary>
+            Ask RWM
+          </ButtonLink>
+          <Link href="/help" className="text-link">
+            Need help now? <ArrowRight size={16} />
+          </Link>
+        </div>
+        <RouteMotif className="circle-route" />
+      </section>
+      <div className="closing-line page-width">
+        <Pawn />
+        <span>EVERY MOVE IS A NEW POSSIBILITY.</span>
+        <ArrowUpRight />
+      </div>
+    </>
+  );
 }

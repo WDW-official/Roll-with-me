@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { activityCategorySlugs, vocationTypes } from "./structure";
 import { ageBand } from "./validation";
 const art = z.enum(["court", "code", "boxing", "football", "film", "robot", "sprint", "maker", "route"]);
 const base = {
@@ -9,6 +10,11 @@ export const opportunityData = z.object({
   ...base,
   description: z.string().min(20).max(5000),
   category: z.string().min(2).max(80),
+  canonicalCategory: z.enum(activityCategorySlugs),
+  catchments: z.array(z.enum(["North", "East", "South", "West"])).min(1).optional(),
+  boroughs: z.array(z.string().min(2).max(100)).min(1).optional(),
+  tags: z.array(z.string().max(80)).max(30).optional(),
+  vocation: z.string().refine(v => vocationTypes.some(t => t.slug === v)).optional(),
   providerId: z.string().regex(/^[a-f0-9]{24}$/i),
   provider: z.string().min(2).max(200),
   borough: z.string().min(2).max(100),

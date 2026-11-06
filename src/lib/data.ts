@@ -28,6 +28,7 @@ const base = {
 export const opportunities: Opportunity[] = [{
   ...base,
   slug: "court-culture",
+  canonicalCategory: "sport-movement",
   title: "COURT CULTURE",
   category: "Basketball",
   borough: "Hackney",
@@ -37,6 +38,7 @@ export const opportunities: Opportunity[] = [{
 }, {
   ...base,
   slug: "build-something",
+  canonicalCategory: "tech-engineering",
   title: "BUILD SOMETHING.",
   category: "Coding & tech",
   borough: "Camden",
@@ -48,6 +50,7 @@ export const opportunities: Opportunity[] = [{
 }, {
   ...base,
   slug: "find-your-footwork",
+  canonicalCategory: "sport-movement",
   title: "FIND YOUR FOOTWORK",
   category: "Boxing fitness",
   borough: "Lambeth",
@@ -58,6 +61,7 @@ export const opportunities: Opportunity[] = [{
 }, {
   ...base,
   slug: "five-a-side",
+  canonicalCategory: "sport-movement",
   title: "ONE TEAM. YOUR GAME.",
   category: "Football",
   borough: "Ealing",
@@ -68,6 +72,7 @@ export const opportunities: Opportunity[] = [{
 }, {
   ...base,
   slug: "make-your-first-film",
+  canonicalCategory: "creative",
   title: "YOUR CITY. YOUR LENS.",
   category: "Film & music",
   borough: "Southwark",
@@ -78,6 +83,7 @@ export const opportunities: Opportunity[] = [{
 }, {
   ...base,
   slug: "robotics-lab",
+  canonicalCategory: "tech-engineering",
   title: "SMALL BUILD. BIG IDEAS.",
   category: "Coding & tech",
   borough: "Newham",
@@ -88,6 +94,7 @@ export const opportunities: Opportunity[] = [{
 }, {
   ...base,
   slug: "fifty-metre-move",
+  canonicalCategory: "sport-movement",
   title: "50 METRES. YOUR PACE.",
   category: "Athletics",
   borough: "Haringey",
@@ -98,6 +105,7 @@ export const opportunities: Opportunity[] = [{
 }, {
   ...base,
   slug: "maker-session",
+  canonicalCategory: "tech-engineering",
   title: "MAKE YOUR MARK",
   category: "Design & trades",
   borough: "Brent",

@@ -26,7 +26,8 @@ export async function getOpportunities(): Promise<Opportunity[]> {
     ...d.data,
     slug: d.slug,
     status: d.status,
-    demo: false
+    demo: false,
+    providerVerified: true
   } as Opportunity));
 }
 export async function getStories(): Promise<Story[]> {

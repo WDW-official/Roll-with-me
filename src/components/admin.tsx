@@ -55,6 +55,7 @@ const templates: Record<string, object> = {
       title: "NEW SUPERVISED SESSION",
       description: "Explain the activity, supervision and eligibility.",
       category: "Basketball",
+      canonicalCategory: "sport-movement",
       providerId: "REPLACE_WITH_VERIFIED_PROVIDER_OBJECT_ID",
       provider: "Verified provider name",
       borough: "Hackney",

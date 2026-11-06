@@ -1,25 +1,14 @@
-import { notFound } from "next/navigation";
-import { SwipeFeed } from "@/components/swipe-feed";
-import { getAreaBoroughs, getOpportunities } from "@/lib/content";
-import { londonAreas, discoveryState } from "@/lib/structure";
-export default async function BoroughPage({
-  params,
-  searchParams
-}: {
-  params: Promise<{
-    area: string;
-    borough: string;
-  }>;
+import { notFound, redirect } from "next/navigation";
+import { getAreaBoroughs } from "@/lib/content";
+import { londonAreas, discoveryState, discoveryHref } from "@/lib/structure";
+import { boroughSlug } from "@/lib/local-discovery";
+export default async function BoroughPage({ params, searchParams }: {
+  params: Promise<{ area: string; borough: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const [p, query, areas, opportunities] = await Promise.all([params, searchParams, getAreaBoroughs(), getOpportunities()]);
-  const area = londonAreas.find(a => a.toLowerCase() === p.area);
-  const borough = area ? areas[area].find(b => b.toLowerCase().replaceAll(" ", "-") === p.borough) : undefined;
+  const [p, query, areas] = await Promise.all([params, searchParams, getAreaBoroughs()]);
+  const area = londonAreas.find(a => a.toLowerCase() === p.area.toLowerCase());
+  const borough = area ? (areas[area] ?? []).find(b => boroughSlug(b) === p.borough) : undefined;
   if (!area || !borough) notFound();
-  const state = discoveryState({
-    ...query,
-    area,
-    borough
-  });
-  return <SwipeFeed key={JSON.stringify(state)} kind="local" opportunities={opportunities} areaBoroughs={areas} initialDiscovery={state} />;
+  redirect(discoveryHref(discoveryState({ ...query, area, borough })));
 }

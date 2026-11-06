@@ -3,6 +3,13 @@ export type Zone = "North" | "South" | "East" | "West";
 export type Role = "participant" | "parent_pending" | "parent_verified" | "editor" | "provider" | "moderator" | "safeguarding" | "legal_reviewer" | "researcher" | "operations" | "admin";
 export type Status = "draft" | "pending_review" | "published" | "expired";
 export interface Opportunity {
+  canonicalCategory?: import("./structure").ActivityCategorySlug;
+  catchments?: Zone[];
+  boroughs?: string[];
+  tags?: string[];
+  vocation?: string;
+  providerVerified?: boolean;
+  riskAssessmentApproved?: boolean;
   slug: string;
   title: string;
   category: string;

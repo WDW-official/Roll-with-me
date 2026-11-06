@@ -1,25 +1,15 @@
 import { notFound } from "next/navigation";
-import { SwipeFeed } from "@/components/swipe-feed";
-import { activityCategories, discoveryState } from "@/lib/structure";
+import { LocalActivities } from "@/components/local-activities";
+import { activityCategories } from "@/lib/structure";
+import { localDiscoveryState } from "@/lib/local-discovery";
 import { getOpportunities, getAreaBoroughs } from "@/lib/content";
-export default async function CategoryPage({
-  params,
-  searchParams
-}: {
-  params: Promise<{
-    category: string;
-  }>;
+import { isDemo } from "@/lib/env";
+export default async function CategoryPage({ params, searchParams }: {
+  params: Promise<{ category: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const [{
-    category
-  }, query, opportunities, areaBoroughs] = await Promise.all([params, searchParams, getOpportunities(), getAreaBoroughs()]);
-  const item = activityCategories.find(c => c.slug === category);
-  if (!item) notFound();
-  const state = discoveryState({
-    ...query,
-    category
-  });
-  if (!(areaBoroughs[state.area] ?? []).includes(state.borough)) state.borough = "";
-  return <SwipeFeed key={JSON.stringify(state)} kind="local" opportunities={opportunities} areaBoroughs={areaBoroughs} initialDiscovery={state} description={item.purpose} />;
+  const [{ category }, query, opportunities, areaBoroughs] = await Promise.all([params, searchParams, getOpportunities(), getAreaBoroughs()]);
+  if (!activityCategories.some(c => c.slug === category)) notFound();
+  const { state, boroughCleared } = localDiscoveryState({ ...query, category }, areaBoroughs);
+  return <LocalActivities state={state} opportunities={opportunities} areaBoroughs={areaBoroughs} demosEnabled={isDemo} boroughCleared={boroughCleared} />;
 }
