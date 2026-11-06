@@ -27,15 +27,15 @@
   --font-mono: "RWM Mono", monospace;
 }
 :root {
-  --bg: #faf4f0;
-  --surface: #f0ebe5;
+  --bg: #fffff;
+  --surface: #f1ecdf;
   --ink: #171817;
   --muted: #64645f;
   --line: #d6d1cb;
   --orange: #ff5500;
   --orange-ink: #b93e00;
-  --inverse: #faf4f0;
-  --card: #fffaf6;
+  --inverse: #fffff;
+  --card: #fffdf6;
   color-scheme: light;
 }
 html[data-theme="dark"] {

@@ -24,7 +24,7 @@ export const viewport: Viewport = {
   themeColor: [
     {
       media: "(prefers-color-scheme: light)",
-      color: "#FAF4F0",
+      color: "#fffff",
     },
     {
       media: "(prefers-color-scheme: dark)",
