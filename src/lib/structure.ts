@@ -45,7 +45,7 @@ export const ruleBranches = [
   },
   {
     slug: "the-street" as const,
-    title: "THE STREET.",
+    title: "THE STREETS.",
     purpose:
       "Read situations, think about your choices and move with awareness. Everyday common sense, respect and a way to get support.",
     art: "route" as const,

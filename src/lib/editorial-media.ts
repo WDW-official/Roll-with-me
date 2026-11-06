@@ -88,7 +88,7 @@ export const editorialMedia: Record<string, EditorialAsset> = {
     "A person uses open-handed gestures while talking with a group",
   ),
   [`${street}/online-to-offline`]: asset(
-    "v1793995128/online_conflict_zka294.png",
+    "v1794007895/online_to_offline_conflict_lnw7ea.png",
     "Online conflict and its effects offline",
   ),
   [`${street}/leave-and-get-help`]: asset(
