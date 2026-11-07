@@ -27,9 +27,33 @@ export const editorialMedia: Record<string, EditorialAsset> = {
     "v1793995170/RWM_Terrain_01_Read_the_Situation_Approaching_Group_Alternative_1_qpl3sf.png",
     "A person looks toward a group in a London street",
   ),
+  [`${path}/sports`]: asset(
+    "v1794084359/rwm-choose-a-path-sports-boxing-training-gym_l5jzun.png",
+    "Sports: boxing training in a gym",
+  ),
+  [`${path}/vocational-practical`]: asset(
+    "v1793995137/rwm-choose-a-path-vocational-practical-construction-training_clyqwh.png",
+    "Vocational and practical skills: construction training",
+  ),
   [`${path}/sports/football-futsal`]: asset(
-    "v1793994828/rwm-choose-a-path-sports-football-development_ojeymm.jpg",
-    "Football development and skills practice",
+    "v1794081502/rwm-choose-a-path-sports-football-futsal-your-skills_ax6jid.png",
+    "Football and futsal skills illustration",
+  ),
+  [`${path}/sports/boxing-martial-arts`]: asset(
+    "v1794081480/rwm-choose-a-path-sports-boxing-martial-arts-find-your-rhythm_tuyqgv.png",
+    "Boxing and martial arts: find your rhythm",
+  ),
+  [`${path}/sports/sport-careers`]: asset(
+    "v1794081483/rwm-choose-a-path-sports-coaching-refereeing-show-your-tactics_gsglb7.png",
+    "Coaching and refereeing: show your tactics",
+  ),
+  [`${path}/sports/athletics`]: asset(
+    "v1794081483/rwm-choose-a-path-sports-athletics-on-your-marks_vjxeq9.png",
+    "Athletics: on your marks",
+  ),
+  [`${path}/sports/basketball`]: asset(
+    "v1794081490/rwm-choose-a-path-sports-basketball-your-skills_hmf9i1.png",
+    "Basketball skills illustration",
   ),
   [`${path}/tech-engineering/mechanical-engineering`]: asset(
     "v1793994830/rwm-choose-a-path-tech-mechanical-engineering-illustrated_mnwifz.png",
@@ -64,8 +88,28 @@ export const editorialMedia: Record<string, EditorialAsset> = {
     "Robotics and automation illustration with a robot arm",
   ),
   [`${path}/vocational-practical/construction-trades`]: asset(
-    "v1793995137/rwm-choose-a-path-vocational-practical-construction-training_clyqwh.png",
-    "Construction and practical skills training",
+    "v1794082367/rwm-choose-a-path-vocational-construction-building-trades-lilac-grid_aksuby.png",
+    "Construction and building trades illustration on a lilac grid",
+  ),
+  [`${path}/vocational-practical/apprenticeships`]: asset(
+    "v1794082361/rwm-choose-a-path-vocational-apprenticeships-entry-routes-lilac-grid_gokmjm.png",
+    "Apprenticeships and entry routes illustration on a lilac grid",
+  ),
+  [`${path}/vocational-practical/electrical-installation`]: asset(
+    "v1794082363/rwm-choose-a-path-vocational-electrical-installation-lilac-grid_rkczmu.png",
+    "Electrical installation illustration on a lilac grid",
+  ),
+  [`${path}/vocational-practical/carpentry-joinery`]: asset(
+    "v1794082365/rwm-choose-a-path-vocational-carpentry-joinery-lilac-grid_agu0j2.png",
+    "Carpentry and joinery illustration on a lilac grid",
+  ),
+  [`${path}/vocational-practical/motor-vehicle-mechanics`]: asset(
+    "v1794082369/rwm-choose-a-path-vocational-motor-vehicle-mechanics-lilac-grid_wajlew.png",
+    "Motor vehicle mechanics illustration on a lilac grid",
+  ),
+  [`${path}/vocational-practical/plumbing-heating`]: asset(
+    "v1794082372/rwm-choose-a-path-vocational-plumbing-heating-lilac-grid_hhk8fr.png",
+    "Plumbing and heating illustration on a lilac grid",
   ),
   [`${street}/read-the-situation`]: asset(
     "v1793995170/RWM_Terrain_01_Read_the_Situation_Approaching_Group_Alternative_1_qpl3sf.png",
