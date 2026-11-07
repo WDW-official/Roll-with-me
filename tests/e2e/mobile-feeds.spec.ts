@@ -121,8 +121,8 @@ test("area, age and category choices survive opening a local listing", async ({
   await page.getByLabel("Choose your borough").selectOption("Hackney");
   await page.getByLabel("Choose age band").selectOption("16–17");
   await page
-    .getByRole("link", { name: "Explore Sport & Movement", exact: true })
-    .click();
+    .getByLabel("Choose activity category")
+    .selectOption("sport-movement");
   await page.getByRole("checkbox", { name: /Show demo previews/ }).check();
   await expect(page).toHaveURL(/category=sport-movement/);
   await page

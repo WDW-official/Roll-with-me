@@ -140,22 +140,21 @@ export function LocalActivities({
                 <option key={a}>{a}</option>
               ))}
             </select>
-            {category && (
-              <select
-                disabled={pending}
-                aria-label="Choose activity category"
-                value={state.category}
-                onChange={(e) =>
-                  update({ category: e.target.value, vocation: undefined })
-                }
-              >
-                {activityCategories.map((c) => (
-                  <option key={c.slug} value={c.slug}>
-                    {c.label}
-                  </option>
-                ))}
-              </select>
-            )}
+            <select
+              disabled={pending}
+              aria-label="Choose activity category"
+              value={state.category}
+              onChange={(e) =>
+                update({ category: e.target.value, vocation: undefined })
+              }
+            >
+              <option value="">All categories</option>
+              {activityCategories.map((c) => (
+                <option key={c.slug} value={c.slug}>
+                  {c.label}
+                </option>
+              ))}
+            </select>
           </div>
           {category && (
             <>

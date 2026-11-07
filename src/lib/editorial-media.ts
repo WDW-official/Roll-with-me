@@ -35,6 +35,10 @@ export const editorialMedia: Record<string, EditorialAsset> = {
     "v1793994830/rwm-choose-a-path-tech-mechanical-engineering-illustrated_mnwifz.png",
     "Mechanical engineering illustration",
   ),
+  [`${path}/tech-engineering/web-development`]: asset(
+    "v1794009629/rwm-choose-a-path-tech-web-development-website-layout-and-code_uzumrw.png",
+    "web-development illustration",
+  ),
   [`${path}/tech-engineering/creative-digital-skills`]: asset(
     "v1793994830/rwm-choose-a-path-tech-creative-digital-skills-media-workspace_siravd.png",
     "Creative digital skills and media workspace",
