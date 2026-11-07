@@ -3585,6 +3585,9 @@ body:has(.social-hub) .breadcrumbs {
     padding: 5px 6px calc(6px + env(safe-area-inset-bottom));
     min-height: 66px;
   }
+  html:not([data-theme="dark"]) .mobile-pillar-nav {
+    background: #fff;
+  }
   .mobile-pillar-nav > a {
     display: flex;
     flex-direction: column;
